@@ -1,0 +1,61 @@
+<div class="pro_box " >
+    
+    <app-user-profile></app-user-profile>
+</div>
+
+<div class="container">
+        <div class="blogs_by_author">
+               
+                
+          
+                
+           <span *ngIf="data_count > 0; else count">
+                <h2 >Blogs Read by You</h2> 
+                <app-loader-small *ngIf="loader_blog==true"></app-loader-small>
+                <div class="blog_readed_author" *ngFor="let list of f_data">
+                    <div class="author_info" routerLink="/blogs/{{list.blog_detail?.slug}}">
+                        <div class="left_info_blog">
+                            <img src="{{media_url}}{{list.blog_detail?.thumbnail}}" alt="image missing">
+                        </div>
+                        <div class="right_info_blog">
+                            <h2>{{list.blog_detail?.title}}</h2>
+                            <p [innerHTML]="(list.blog_detail?.excerpt.length>200)? (list.blog_detail?.excerpt | slice:0:200)+'...':(list.blog_detail?.excerpt)    "></p>
+                            <a class="b_learn_more" routerLink="/blogs/{{list.blog_detail?.slug}}">LEARN MORE</a>
+                            
+                        </div>
+                       <div class="clear"></div>
+                  </div>
+                 
+                 <span *ngIf="list?.percent_read <=25"> 
+                     <div class="right_side_percntge bg_red">{{list?.percent_read}}%</div>
+                   
+                </span> 
+                <span *ngIf="list?.percent_read >25 && list?.percent_read <=50"> 
+                     
+                       <div class="right_side_percntge bg_orange">{{list?.percent_read}}%</div>
+                      
+                   </span>
+                   <span *ngIf="list?.percent_read >50  && list?.percent_read <= 75"> 
+                       
+                       <div class="right_side_percntge bg_yellow">{{list?.percent_read}}%</div>
+                      
+                   </span>
+                   <span *ngIf="list?.percent_read >75 &&  list?.percent_read <= 100"> 
+                      
+                       <div class="right_side_percntge bg_green">{{list?.percent_read}}%</div>
+                   </span>
+    
+                  
+                  
+                  <div class="clear"></div>
+                </div>
+           </span>
+           <ng-template #count>
+                <div class="no_blogs">
+                    <h2> No blogs read by you</h2>
+                </div>
+        </ng-template>
+         
+          </div>
+
+  </div>   

@@ -1,0 +1,5 @@
+ .cat_ads{margin-top: 52px;}
+
+ @media(max-width:767px){
+    .cat_ads{margin-top: 0px;}
+ }

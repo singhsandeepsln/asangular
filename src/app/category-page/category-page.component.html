@@ -1,0 +1,109 @@
+ 
+<section class="mid_cont">	
+ <div class="container">  <div class="row">
+        <div class="col-lg-9">
+
+<div  class="blog_top_head no_radius">
+<h3 class="blog_head mt-0" > MACHINE LEARNING      <!--  {{blog_machine_data.name}}--> </h3> 
+<app-loader-small *ngIf="blog_machine_loader==true"></app-loader-small>
+<owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide  *ngFor="let blog_data of blog_machine_data.blogs"  >
+        <div class="blog_img_box_2 img_blog_box">
+            <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_data.slug}}">
+                <h2>{{blog_data.title}}</h2>
+                <span class="blogger_name">{{blog_data.created_by}} | {{blog_data.published_on | date: "MMM dd, yyyy"}}</span>
+            </div>
+                        
+            <img src="{{media_url}}{{blog_data.thumbnail}}" alt="" routerLink="/blogs/{{blog_data.slug}}">
+        </div>
+        </ng-template>    
+</owl-carousel-o>
+</div>   <!-- end one machine-learning --> 
+
+               
+         
+
+
+<div class="clearfix"></div>    
+<div   class="blog_top_head">
+<h3 class="blog_head"> DEEP LEARNING        <!--{{blog_deep_data.name}}--></h3> 
+<app-loader-small *ngIf="blog_deep_loader==true"></app-loader-small>
+ <div class="row">
+     <div class="col-lg-6 pb-4" *ngFor="let blog_data of blog_deep_data.blogs | slice:0:4;">
+
+            <div class="blog_img_box_small img_blog_box"  routerLink="/blogs/{{blog_data.slug}}">
+                <img src="{{media_url}}{{blog_data.thumbnail}}">              
+            </div>
+         
+        <div class="blog_home_txt_ri"  routerLink="/blogs/{{blog_data.slug}}">  
+                 <h2>{{(blog_data.title.length>65)? (blog_data.title | slice:0:65)+'...':(blog_data.title) }}</h2>
+                 <p [innerHtml]="(blog_data.excerpt.length>80)? (blog_data.excerpt | slice:0:80)+'...':(blog_data.excerpt)"> </p> 
+        </div>   
+
+     </div>
+ </div> 
+ 
+</div>   <!-- end one DEEP LEARNING -->              
+        <div class="clearfix"></div>
+                 
+<div class="blog_top_head no_radius">
+<h3 class="blog_head big_data_sa">BIG DATA <!--{{blog_big_data.name}} -->   </h3> 
+<app-loader-small *ngIf="blog_big_loader==true"></app-loader-small>
+<owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide  *ngFor="let blog_data of blog_big_data.blogs " >
+<div  class="blog_img_box_2 img_blog_box">
+                <div class="blog_home_txt_btm"  routerLink="/blogs/{{blog_data.slug}}">
+                    <h2>{{blog_data.title}}</h2>
+                    <span class="blogger_name">{{blog_data.created_by}} | {{blog_data.published_on | date: "MMM dd, yyyy"}}</span>
+                </div>
+                
+            <img src="{{media_url}}{{blog_data.thumbnail}}" alt=""  routerLink="/blogs/{{blog_data.slug}}">
+</div>
+             
+
+        </ng-template>    
+</owl-carousel-o>
+</div>   <!-- end one machine-learning -->                  
+                 
+
+<div  class="blog_top_head no_radius">
+<h3 class="blog_head">NATURAL LANGUAGE PROCESSING <!--{{blog_nlp_data.name}}--></h3> 
+<app-loader-small *ngIf="blog_nlp_loader==true"></app-loader-small>
+<owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide  *ngFor="let blog_data of blog_nlp_data.blogs ">
+                        <div class="blog_img_box_6 ">
+                    <div class="img_blog_box " routerLink="/blogs/{{blog_data.slug}}"> 
+                        <img src="{{media_url}}{{blog_data.thumbnail}}" class="img-responsive">   
+                    </div>                        
+                
+                    
+                        <h2 routerLink="/blogs/{{blog_data.slug}}">{{(blog_data.title.length>70)? (blog_data.title | slice:0:70)+'...':(blog_data.title)}}</h2>
+                        <p routerLink="/blogs/{{blog_data.slug}}" [innerHtml]="(blog_data.excerpt.length>100)? (blog_data.excerpt | slice:0:100)+'...':(blog_data.excerpt) "> </p>  
+                      
+                        <a routerLink="/blogs/{{blog_data.slug}}">FIND OUT MORE</a>
+                        </div>
+        </ng-template>    
+</owl-carousel-o>
+
+ 
+ 
+</div>   <!-- end one DEEP LEARNING -->          
+
+
+                    
+        
+         </div> <!-- end lef t-->
+        
+         <div class="col-lg-3">
+                <a routerLink="/write-blog" ><img src="assets/images/right_ads.jpg" alt="" class="google_ads  cat_ads"> </a>
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads5.jpg" alt="" class="google_ads"> </a>
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads6.jpg" alt="" class="google_ads"> </a>
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads7.jpg" alt="" class="google_ads"> </a>
+         </div>
+ </div>
+      
+
+</div>
+ </section>
+
+ 

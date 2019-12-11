@@ -1,0 +1,430 @@
+
+
+<section class="mid_cont">
+<div class="container"><div class="row ">
+<div class="col-lg-9 blog_detail_box">
+<!-- social network set left side -->
+<div class="fixed_right">
+        <div class="stick_lft_social">
+        <!-- <a href="https://www.facebook.com/Analyticsteps/" target="_blank" class="round_circle_socail"><img src="assets/images/icons/blue_fb.png" alt=""></a> -->
+
+
+<!-- <ng-template #elseTemplateName>
+ false
+</ng-template> -->
+
+<!-- <div *ngIf="isLogged=='true'">
+        
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=https://www.analyticssteps.com/blogs/{{blog_Data.slug}}" target="_blank" class="round_circle_socail"><img src="assets/images/icons/blue_fb.png" alt=""></a>
+        <a  href="https://twitter.com/share?url=https://www.analyticssteps.com/blogs/{{blog_Data.slug}}&amp;text={{blog_Data.title}}&amp;hashtags=analyticssteps" target="_blank" class="round_circle_socail"><img src="assets/images/icons/blue_twitter.png" alt=""></a>
+        <a  href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.analyticssteps.com/blogs/{{blog_Data.slug}}" target="_blank" class="round_circle_socail"><img src="assets/images/icons/blue_link.png" alt=""></a>
+                        
+</div>
+ 
+<div *ngIf="isLogged=='false'"></div> -->
+
+<a (click)="helpWindow($event,popup_login,'fabc')"  class="round_circle_socail"><img src="assets/images/icons/blue_fb.png" alt=""></a>
+<a (click)="helpWindow($event,popup_login,'tw')"  class="round_circle_socail"><img src="assets/images/icons/blue_twitter.png" alt=""></a>
+<a (click)="helpWindow($event,popup_login,'lnkd')"  class="round_circle_socail"><img src="assets/images/icons/blue_link.png" alt=""></a>
+
+        <!-- <a (click)="blogs_like(popup_login)"  class="round_circle_socail"><img src="assets/images/icons/blue_link.png" alt=""></a> -->
+
+              <div class="social_right_sa">
+                 
+                <div class="f_r_btm_box" (click)="blogs_like(popup_login)" > 
+                        <img src="assets/images/icons/like_blue.png" alt="" *ngIf="blog_like_unlike==false">
+                        <img src="assets/images/icons/like_red.png" alt="" *ngIf="blog_like_unlike==true">
+                         <span>{{blog_like_count}}</span></div>
+
+
+ <div class="f_r_btm_box" (click)="scroll_get(get_comment)"><img src="assets/images/icons/comment_active.png" alt=""> <span>{{blog_comnt_count}}</span> </div>
+              </div>
+        </div>
+</div>
+
+        <!-- social network set right side -->
+
+<div class="blog_det_pd_lft_90" id="dom_height" detect-scroll (onScroll)="handleScroll($event)">
+<app-loader-small *ngIf="loader==true"></app-loader-small>
+<div class="clearfix"></div>
+<h3>{{blog_Data.title}}</h3>
+<div class="blog_date"><span class="blogger_name"  routerLink="/author/{{author_detail_data.username}}">{{blog_Data.created_by}}</span> | <span class="date">{{blog_Data.published_on | date: "MMM dd, yyyy"}}</span></div>
+<div class="blog_img"><img src="{{media_url}}{{blog_Data.thumbnail}}" alt=""></div>
+
+<div class="blog_detail">
+        <div [innerHtml]="blog_Data.contents"></div>
+
+</div>
+</div>
+
+        <span *ngIf="percent_roundOf<=100; else o" class="per_position">
+        <div class="right_side_percntge">{{percent_roundOf}}%</div> <!-- Right side -->
+        </span>
+        <ng-template #o><div class="right_side_percntge">100%</div></ng-template>
+
+
+</div> <!-- end -->
+
+<div class="col-lg-3 main_blog_ri">
+        <h3>Trending blogs</h3>
+        <div class="right_blog_list"><ul>
+           <li *ngFor="let list of tranding_blog_data"> <p routerLink="/blogs/{{list.slug}}">{{list.title}}</p> <a routerLink="/blogs/{{list.slug}}">READ MORE</a> </li>
+        </ul></div>
+
+        <div class="ads_block">
+        <a routerLink="/write-blog"><img src="assets/images/right_ads.jpg" alt="" class="google_ads "> </a>
+      
+
+        <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads2.jpg" alt="" class="google_ads"></a>
+        <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads3.jpg" alt="" class="google_ads"></a>
+        <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads4.jpg" alt="" class="google_ads"></a>
+
+        </div>
+        <!-- <a href="#"><img src="assets/images/google-ads/ads-2.jpg" alt="" class="google_ads"> </a>
+        <a href="#"><img src="assets/images/google-ads/ads-3.jpg" alt="" class="google_ads"> </a>
+        <a href="#"><img src="assets/images/google-ads/ads4.jpg" alt="" class="google_ads"> </a> -->
+
+</div>
+</div></div>
+<div class="clearfix"></div>
+<div class="container "><div class=" bloger_box" id="reading_percent">
+<div class=" row">
+<div class="col-lg-3"><div class="blogger_img_box"> <div class="blogger_img_box_img" routerLink="/author/{{author_detail_data.username}}">
+<img src="{{media_url}}{{author_detail_data.profile_pic}}" alt="" class="" *ngIf="author_detail_data.profile_pic">
+<img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="author_detail_data.profile_pic==null">
+</div></div></div>
+<div class="col-lg-9">
+        <div class="user_detail_blog_det">
+<h3 routerLink="/author/{{author_detail_data.username}}">{{author_detail_data.name}}</h3> <p>{{author_detail_prof_data.biography}}</p>
+<div class="sml_divider"></div>
+<div class="auth_socail"><a href="{{author_detail_prof_data.linkedin_link}}" target="_blank"><img class="linked_img" src="/assets/images/icons/linkedin_white.png" /> </a></div>
+
+</div>
+</div>
+</div>
+</div> </div>
+
+<div class="clearfix"></div>
+<div class="container"><div class="blog_cat_slider row">
+
+
+
+<div class="blog_top_head no_radius blog_detail_width_100">
+                <owl-carousel-o [options]="customOptions">
+                        <ng-template carouselSlide  *ngFor="let blog_data of latest_blog_data " >
+                <div  class="blog_img_box_2 img_blog_box" routerLink="/blogs/{{blog_data.slug}}">
+                        <div class="blog_home_txt_btm">
+                                        <h2>{{blog_data.title}}</h2>
+                                        <span class="blogger_name">{{blog_data.created_by}}, {{blog_data.published_on | date: "MMM dd, yyyy"}}</span>
+                        </div>
+
+                        <img src="{{media_url}}{{blog_data.thumbnail}}">
+                </div>
+
+
+                        </ng-template>
+                </owl-carousel-o>
+                </div>   <!-- end one machine-learning -->
+</div></div>
+
+<!--    start  comment part start -->
+<div class="clearfix"></div>
+<div class="container" id=""><div class=" row">
+<div class="col-lg-9">
+        <div class="comnt_div">
+                <li *ngFor="let comnt_list of comment_data; let i = index;">
+                        <div class="cmnt_main_parent">
+                                <div class="cmnt_user_img">
+                                        <img src="{{media_url}}{{comnt_list.user_pic}}" alt="" class="" *ngIf="comnt_list.user_pic">
+                                        <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="comnt_list.user_pic==null">
+                                </div>
+                                <div class="cmnt_user_box">
+                                        <div class="cmnt_top"><h4>{{comnt_list.username}}</h4> <span class="cmnt_date"> {{comnt_list.created_date | date: "MMM dd, yyyy"}} </span></div>
+                                        <p>{{comnt_list.comment}}</p>
+
+                                        <div class="cmnt_btm">
+                                                <a class="cmnt_like"  (click)="click_like(comnt_list.id, popup_login)">
+                                                        
+                                                                
+
+                                                        <span *ngIf="comnt_list.is_liked==false"> <img src="assets/images/icons/like_grey.png" alt="" class=""> 
+                                                                <font *ngIf="comnt_list.total_likes==0"> Like</font>
+                                                                <font *ngIf="comnt_list.total_likes==1"> {{comnt_list.total_likes}} Like</font>    
+                                                                <font *ngIf="comnt_list.total_likes>=2"> {{comnt_list.total_likes}} Likes</font>                                                              
+                                                        </span>
+                                                        
+                                                        <!-- <span *ngIf="comnt_list.total_likes==0"> <img src="assets/images/icons/like_grey.png" alt="" class=""> Like</span> -->
+                                                        <strong  *ngIf="comnt_list.is_liked==true"><img src="assets/images/icons/like_red.png" alt="" class="">
+                                                                <font  *ngIf="comnt_list.total_likes==1"> {{comnt_list.total_likes}} Like</font>
+                                                                <font  *ngIf="comnt_list.total_likes>=2"> {{comnt_list.total_likes}} Likes</font>
+                                                        </strong>
+                                                        
+                                                </a>
+                                                <a class="cmnt_cmnt" (click)="click_comment(i, popup_login)"> <img src="assets/images/icons/comment.png" alt="" class=""> 
+                                                         <span *ngIf="comnt_list.total_reply==0"> Reply</span> 
+                                                         <span *ngIf="comnt_list.total_reply==1"> {{comnt_list.total_reply}} Reply</span> 
+                                                         <span *ngIf="comnt_list.total_reply>=2"> {{comnt_list.total_reply}} Replies</span> 
+                                                        
+                                                </a>
+
+
+                                        </div>
+                                </div>
+                        </div> <!-- main paernt end-->
+
+                        <div class="child_1" *ngFor="let child_1 of comnt_list.child_comments; let j = index;">
+                                <div class="cmnt_user_img">
+                                        <img src="{{media_url}}{{child_1.user_pic}}" alt="" class="" *ngIf="child_1.user_pic">
+                                        <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="child_1.user_pic==null">
+                                </div>
+                                <div class="cmnt_user_box">
+                                        <div class="cmnt_top"><h4>{{child_1.username}}</h4> <span class="cmnt_date"> {{child_1.created_date | date: "MMM dd, yyyy"}} </span></div>
+                                        <p>{{child_1.comment}}</p>
+
+                                        <div class="cmnt_btm">
+                                                <a class="cmnt_like" (click)="click_like(child_1.id, popup_login)">
+
+
+                                                        <!-- <span *ngIf="child_1.total_likes==0"> <img src="assets/images/icons/like_grey.png" alt="" class=""> Like</span>
+                                                        <span *ngIf="child_1.total_likes==1"> <img src="assets/images/icons/like_red.png" alt="" class=""> {{child_1.total_likes}} Like</span>
+                                                        <span *ngIf="child_1.total_likes>=2"> <img src="assets/images/icons/like_red.png" alt="" class=""> {{child_1.total_likes}} Likes</span> -->
+
+
+                                                        
+                                                        <span *ngIf="child_1.is_liked==false"> <img src="assets/images/icons/like_grey.png" alt="" class=""> 
+                                                                <font *ngIf="child_1.total_likes==0"> Like</font>
+                                                                <font *ngIf="child_1.total_likes==1"> {{child_1.total_likes}} Like</font>    
+                                                                <font *ngIf="child_1.total_likes>=2"> {{child_1.total_likes}} Likes</font>                                                             
+                                                        </span>
+                                                        
+                                                        <!-- <span *ngIf="comnt_list.total_likes==0"> <img src="assets/images/icons/like_grey.png" alt="" class=""> Like</span> -->
+                                                        <strong  *ngIf="child_1.is_liked==true"><img src="assets/images/icons/like_red.png" alt="" class="">
+                                                                <font  *ngIf="child_1.total_likes==1"> {{child_1.total_likes}} Like</font>
+                                                                <font  *ngIf="child_1.total_likes>=2"> {{child_1.total_likes}} Likes</font>
+                                                        </strong>
+                                                        <!-- <strong *ngIf="child_1.is_liked==true"><img src="assets/images/icons/like_red.png" alt="" class="">{{child_1.total_likes}} Liked</strong> -->
+
+
+                                                 </a>
+                                                <!-- <a class="cmnt_cmnt" (click)="click_comment(child_1.id, popup_login)"> <img src="assets/images/icons/comment.png" alt="" class=""> Reply</a> -->
+
+                                                <!-- <div [innerHTML]="myHtml"></div> -->
+                                                <!-- <div class="child_form" *ngIf="showBtn===child_1.id">
+                                                        <textarea class="form-control" id="id_{{child_1.id}}" placeholder="Reply "></textarea>
+                                                        <button type="button" (click)="printValue('id_'+child_1.id,child_1.id)" class="btn_post_comnt"> Reply   </button>
+                                                </div> -->
+                                                <!-- <form [formGroup]="Blog_Comment_Form" (ngSubmit)="comment_btn_submit(child_1.id)" *ngIf="showBtn===child_1.id" class="child_form">
+
+                                                        <textarea class="form-control" formControlName="comment"  ></textarea>
+                                                        <button type="submit" class="btn_post_comnt"   [disabled]="Blog_Comment_Form.invalid">Reply</button>
+                                                        <a class="btn_post_comnt_cncl" (click)="cancel_comment(child_1.id)">Cancel</a>
+                                                </form> -->
+                                        </div>
+                                </div>
+                                <!-- start child 1 -->
+                                <div class="child_2" *ngFor="let child_2 of child_1.child_comments; let j = index;">
+                                        <div class="cmnt_user_img">
+                                                <img src="{{media_url}}{{child_2.user_pic}}" alt="" class="">
+                                                <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="child_2.user_pic==null">
+                                        </div>
+                                        <div class="cmnt_user_box">
+                                                <div class="cmnt_top"><h4>{{child_2.username}}</h4> <span class="cmnt_date"> {{child_2.created_date | date: "MMM dd, yyyy"}} </span></div>
+                                                <p>{{child_2.comment}}</p>
+
+                                                <div class="cmnt_btm">
+                                                        <a class="cmnt_like" (click)="click_like(child_2.id, popup_login)">
+                                                                <span *ngIf="child_2.is_liked==false"> <img src="assets/images/icons/like_grey.png" alt="" class="">{{child_2.total_likes}} Like</span>
+                                                                <strong *ngIf="child_2.is_liked==true"><img src="assets/images/icons/like_red.png" alt="" class="">{{child_2.total_likes}} Like</strong>
+                                                         </a>
+                                                        <!-- <div [innerHTML]="myHtml"></div> -->
+
+                                                </div>
+                                        </div>
+                                </div><!-- end child 2 -->
+
+                        </div> <!-- main paernt end--> 
+                        <div  *ngIf="showBtn===i" class="child_form child_1"> 
+                                        <div class="cmnt_user_img">
+                                                <img src="{{media_url}}{{user_prof_pic}}" alt="" class="" *ngIf="user_prof_pic">
+                                                <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="user_prof_pic==null">
+                                        </div>
+                                        <div class="cmnt_user_box">
+                                <textarea class="form-control" id="id_{{comnt_list.id}}" placeholder="Write a reply.." (keydown)="onKeydown($event,'id_'+comnt_list.id,comnt_list.id)"></textarea>
+                                <!-- <button type="button" (click)="printValue('id_'+comnt_list.id,comnt_list.id )" class="btn_post_comnt"> Reply </button>
+                                <a class="btn_post_comnt_cncl" (click)="cancel_comment(comnt_list.id)">Cancel</a> -->
+                                        </div>
+                        </div>
+                </li>
+                <div class="clearfix"></div>
+
+                <div class="cmnt_user_img">
+                        <img src="{{media_url}}{{user_prof_pic}}" alt="" class=""  *ngIf="user_prof_pic">
+                        <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="user_prof_pic==null">
+                </div>
+
+
+                <div class="cmnt_user_box"  #get_comment>
+                        <form [formGroup]="Blog_Comment_Form" (ngSubmit)="comment_submit(popup_login)">
+                        <textarea class="form-control" formControlName="comment" placeholder="Write a comment.." (keydown)="on_post_comment(popup_login,$event)"></textarea>
+                        <button type="submit" class="btn_post_comnt" [disabled]="Blog_Comment_Form.invalid || loader_post_cmnt"> <i class="fa fa-spinner fa-spin" *ngIf="loader_post_cmnt"></i>  POST COMMENT</button>
+                        <a routerLink="/write-blog" class="btn_write_blog"  >Write a BLOG</a>
+                        </form>
+                </div>
+         </div>
+</div>
+<div class="col-lg-3"></div>
+</div></div>
+<!--    End  comment part End -->
+
+</section>
+
+<div id="xx" style="display:none"></div>
+
+
+<!--    -----  Login pop up     ----------                       -->
+<ng-template #popup_login let-modal >
+<!-- Modal body -->
+<div class="login_pop_up">
+<div class="modal-body">
+<img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+<div class="logn_left">
+                <h3>Login</h3>
+                <h4>Don't miss your next opportunity <strong>Login now!</strong></h4>
+                <div class="login_form">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit_login()">
+
+                <div class="row">
+                    <div class="col-lg-12">   <div class="question">
+                            <input type="text" required formControlName="username" />
+                            <label>Username/Email</label>
+                        </div></div>   </div>
+                        <div class="clearfix"></div>
+                    <div class="row">
+                    <div class="col-lg-12">    <div class="question">
+                        <input type="password" required formControlName="password" />
+                        <label>Password</label>
+                        </div></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="row">
+                        <div class="col-lg-12"><button type="submit" class="btn_login" [disabled]="!loginForm.valid ">LOGIN <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-lg-12"><p class="login_note"><a (click)="pop_forget_password()">Forgot Password?</a> <a (click)="pop_register(popup_register)" class="float-right">Register now</a></p></div>
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-12">
+                                <app-social [hero]="'blog_page'"></app-social>
+                         </div>
+                        </div>
+                        <!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a href="#" >Login</a></p></div> -->
+
+
+                </form>
+                </div>
+                </div>
+
+
+</div></div>
+
+<!-- Modal footer -->
+</ng-template>
+
+
+
+<ng-template #popup_register let-modal >
+                <div class="register_pop_up">
+                        <div class="modal-body">
+                <img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+                <div class="logn_left">
+
+                  <div class="as_container">
+
+         <h3>Register to Analytics Steps!</h3>
+         <h4>Enter the new world of Blogging! <strong>Register Now.</strong></h4>
+             <div class="login_form">
+
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit_register(popup_login)">
+
+                                        <div class="row">
+                                             <div class="col-lg-6">   <div class="question">
+                                                     <input type="text" required  formControlName="name"/>
+                                                     <label>Full name</label>
+                                                       <div  class="web_error" *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" >
+                                                       <div *ngIf="registerForm.controls['name'].errors.required">* Full name is required</div>
+                                                       <!-- <div *ngIf="registerForm.controls['name'].errors.email ">* Enter valid email id</div> -->
+                                                   </div>
+                                                   </div>
+
+                                                 </div>
+                                                 <div class="col-lg-6">
+                                                    <div class="question">
+                                                     <input type="text" required  formControlName="username"/>
+                                                     <label>Username</label>
+                                                     <div class="web_error" *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)" >
+                                                       <div *ngIf="registerForm.controls['username'].errors.required">* Username is required</div>
+                                                       <!-- <div *ngIf="registerForm.controls['username'].errors.email ">* Enter valid email id</div> -->
+                                                   </div>
+                                                   </div>
+
+                                                 </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                     <input type="text" required formControlName="mobile" maxlength="10"/>
+                                                     <label>Phone number</label>
+                                                     <div  class="web_error" *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)" >
+                                                         <div *ngIf="registerForm.controls['mobile'].errors.required">* Mobile number is required</div>
+                                                         <!-- <div *ngIf="registerForm.controls['mobile'].errors.email ">* Enter valid email id</div> -->
+                                                     </div>
+                                                   </div>
+
+                                                 </div>
+                                               <div class="col-lg-6">     <div class="question">
+                                                     <input type="text" required formControlName="email"/>
+                                                     <label>Email</label>
+                                                     <div  class="web_error" *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" >
+                                                         <div *ngIf="registerForm.controls['email'].errors.required">* Email id is required</div>
+                                                         <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div>
+                                                     </div>
+                                                   </div>
+
+                                                 </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                   <input type="password" required formControlName="password"/>
+                                                   <label>Password</label>
+                                                   <div  class="web_error" *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" >
+                                                       <div *ngIf="registerForm.controls['password'].errors.required">* Password  is required</div>
+                                                       <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                                                   </div>
+                                                   </div>
+
+                                                 </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                   <input type="password" required formControlName="confirm_password"/>
+                                                   <label>Confirm password</label>
+                                                   <div  class="web_error" *ngIf="registerForm.controls['confirm_password'].invalid && (registerForm.controls['confirm_password'].dirty || registerForm.controls['confirm_password'].touched)" >
+                                                       <div *ngIf="registerForm.controls['confirm_password'].errors.required">* Confirm password is required</div>
+                                                       <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                                                   </div>
+                                                   </div>
+
+                                                 </div>
+                                                   <div class="clearfix"></div>
+                                                   <div class="col-lg-6"><button type="submit" class="btn_login"  [disabled]="!registerForm.valid || loader_register"><i class="fa fa-spinner fa-spin" *ngIf="loader_register"></i> REGISTER <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+                                                   <div class="col-lg-12"><p class="login_note">Note: By registering with us, you are agreeing to our <a href="/privacy-policy" >Privacy Policy</a></p></div>
+
+                                                   <div class="col-lg-8">
+                                                       <app-social [hero]="'blog_page'"></app-social>
+                                                    </div>
+                                                 <!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a   >Login</a></p></div> -->
+                                        </div>
+
+                                           </form>
+
+
+             </div>
+         </div></div>
+        </div></div>
+</ng-template>

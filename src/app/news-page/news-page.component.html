@@ -1,0 +1,30 @@
+<section class="mid_cont">	<div class="container"><div class="row">
+        <div class="col-lg-9">
+            <app-loader-small *ngIf="loader==true"></app-loader-small>
+            <div class="clearfix"></div>
+            <div class="news_box" *ngFor="let news  of  news_data | paginate: { itemsPerPage:11, currentPage: p }" id="news_id_{{news.id}}">
+                <h2>{{news.title}}</h2>
+                <ul>
+                    <li><span>Posted By</span><a >{{news.posted_by}}</a></li>
+                    <li><span>Categories</span> <a >{{ news.category[0].name}}&nbsp;   </a> <a *ngIf="news.category[1]">, {{news.category[1].name}}  </a></li>
+                    <li><span>Date</span><a >{{news.published_on | date: "MMM dd, yyyy"}}</a></li>
+                </ul>
+                <p [innerHtml]="news.description"> </p>
+                <a href="{{news.url}}" target="_blank" class="btn_view_more_news">VIEW MORE</a>
+            </div> <!-- end box -->
+              <div class="clearfix"></div>
+           <div class="col-lg-12 text-center center news_pagination"> 
+               <pagination-controls
+            
+            (pageChange)="onPageChange($event)"
+            autoHide="true"
+            responsive="true" style="display: inline-block"></pagination-controls></div>
+        </div>
+        <!-- end left side   (pageChange)="p = $event" -->
+        <div class="col-lg-3">
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads5.jpg" alt="" class="google_ads"> </a>
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads6.jpg" alt="" class="google_ads"> </a>
+                <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads7.jpg" alt="" class="google_ads"> </a>
+        </div>
+
+    </div></div></section>

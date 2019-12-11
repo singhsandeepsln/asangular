@@ -1,0 +1,77 @@
+
+    <footer *ngIf="IsValid()" >
+        <div >
+        <div class="as_container" >
+             <div class="left_footer">
+                 <ul>
+                     <li><a routerLink="/blogs">blogs</a></li>
+                     <li>
+                         <a routerLink="/about-us">About Us</a>
+                     </li>
+                     <li>
+                         <a routerLink="/categories">Categories</a>
+                     </li>
+                     <li>
+                        <a routerLink="/career">Careers</a>
+                    </li>
+                    
+                     <li>
+                         <a routerLink="/news">News</a>
+                     </li>
+                     <li>
+                         <a routerLink="/write-blog">Write a blog</a>
+                        </li>
+                    <div class="clear"></div>
+                 </ul>
+             </div>
+             <div class="right_footer">
+                 <div class="social_links_mobile">
+                    <ul>
+                            <li><a href="https://www.facebook.com/AnalyticsStep" target="_blank"><img src="../../../assets/images/social-icons/facebook.png" alt="image missing"></a></li>
+                            <li><a href="https://twitter.com/AnalyticsSteps" target="_blank"><img src="../../../assets/images/social-icons/twitter.png" alt="image missing"></a></li>
+                            <li><a href="https://www.linkedin.com/company/analytics-steps/" target="_blank"><img src="../../../assets/images/social-icons/linkedin.png" alt="image missing"></a></li>
+                        </ul>
+                    </div>
+                 <div class="social_link">
+                        
+                     <ul>
+                         <li><a href="https://www.facebook.com/AnalyticsStep" target="_blank">FACEBOOK</a></li>
+                         <li><a href="https://twitter.com/AnalyticsSteps" target="_blank">TWITTER</a></li>
+                         <li><a href="https://www.linkedin.com/company/analytics-steps/" target="_blank">LINKED IN</a></li>
+                     </ul>
+                 </div>
+                 <div class="subcribe">
+                    <span> Newsletter</span>
+                    <form [formGroup]="subscribe" (ngSubmit)="onSubmit()">
+                             
+                        
+                     <div class="question">
+                
+                         <input type="email" formControlName="email" placeholder="Email address"/>
+                         <!-- <label> Email address</label> -->
+                         <div class="subs_btn">
+                                <!-- <span class="subscribe_border"></span>-->
+                                <!-- <input type="submit" value="Subscribe"  [disabled]="!registerForm.valid   || button.disabled == 'loading' " #button> -->
+                                <button type="submit" [disabled]="!subscribe.valid || loader" ><i class="fa fa-spinner fa-spin" *ngIf="loader"></i>  Subscribe</button>
+                           </div><div class="clear"></div>
+                           
+                     </div>
+                     <div *ngIf="!subscribe.get('email').valid && subscribe.get('email').touched" style="color: red; font-size: 12px;">
+                            <div *ngIf="subscribe.get('email').errors.required">*This field is required</div>
+                            <div *ngIf="subscribe.get('email').errors.email">*Enter valid email</div>
+                        </div>
+                    </form>
+                      
+                 </div><div class="clear"></div>
+             </div><div class="clear"></div>
+        </div>
+         <div class="footer_bottom">
+             <div class="as_container">
+                 <span class="footer_bottom_left">Copyright © Analytics Steps 2019. All Rights Reserved. </span>
+             <span class="footer_bottom_right"><a routerLink="/terms-of-use">Terms of Use</a> | <a routerLink="/privacy-policy">Privacy Policy</a></span>
+                 <div class="clear"></div>
+             </div>
+         </div>
+</div>
+     </footer>
+    

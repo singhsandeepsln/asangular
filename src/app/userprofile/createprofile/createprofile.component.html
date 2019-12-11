@@ -1,0 +1,96 @@
+
+    <div class="container">
+      <div class="create_p_wrapper " *ngIf="hide_div">
+          <form [formGroup]="createProfile" (ngSubmit)="onSubmit()">
+             <div class="box_position">
+
+                  <div class="box_left">
+                        <input type="file" accept=".jpeg,.jpg" formControlName="profile_pic" (change)="onSelected($event)">
+                        <div class="loader_im" *ngIf="loader_img==true">
+                            <svg width="48" height="48" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                            <path d="M 150,0 a 150,150 0 0,1 106.066,256.066 l -35.355,-35.355 a -100,-100 0 0,0 -70.711,-170.711 z" fill="#0768d3">
+                              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" begin="0s" dur="1.5s" fill="freeze" repeatCount="indefinite"></animateTransform>
+                            </path>
+                          </svg>
+                        </div>
+
+                        <img src="assets/images/icons/user_default.jpg" alt="image missing" class="" *ngIf="get_user_image==null">
+                        <img src="{{media_url}}{{get_user_image}}" alt="image missing" class="" *ngIf="get_user_image">
+
+                  </div>
+                  <img src="assets/images/icons/add_profile_pic.png" alt="image missing" class="add_img">
+                  <!-- <img src="{{media_url}}{{image_uploaded}}" alt="image missing" class="add_img"> -->
+             </div>
+                <div class="box_right">
+                     <div class="row">
+                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                             <div class="question">
+                                <input type="text"  formControlName="name"   maxlength="25"/>
+                                <label>Name</label>
+                              </div>
+                              <div  class="web_error" *ngIf="createProfile.controls['name'].invalid && (createProfile.controls['name'].dirty || createProfile.controls['name'].touched)" >
+                                <div *ngIf="createProfile.controls['name'].errors.required">* Full name is required</div>
+                                <div *ngIf="createProfile.controls['name'].errors.maxlength ">* Maximum 25 character</div>
+                                <div *ngIf="createProfile.controls['name'].errors.minlength ">* Minimum 3 character</div>
+                              </div>
+                         </div>
+                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="question">
+                                   <input type="text"  formControlName="username"  maxlength="25"/>
+                                   <label>Username</label>
+                                 </div>
+                              <div  class="web_error" *ngIf="createProfile.controls['username'].invalid && (createProfile.controls['username'].dirty || createProfile.controls['username'].touched)" >
+                                <div *ngIf="createProfile.controls['username'].errors.required">* User name is required</div>
+                                <div *ngIf="createProfile.controls['username'].errors.maxlength ">* Maximum 25 character</div>
+                                <div *ngIf="createProfile.controls['username'].errors.minlength ">* Minimum 3 character</div>
+                              </div>
+                            </div>
+                     </div>
+                     <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="question">
+                                   <input type="text"  formControlName="mobile" maxlength="10"/>
+                                   <label>Phone number</label>
+                                 </div>
+                              <div  class="web_error" *ngIf="createProfile.controls['mobile'].invalid && (createProfile.controls['mobile'].dirty || createProfile.controls['mobile'].touched)" >
+                                <div *ngIf="createProfile.controls['mobile'].errors.required">* Mobile number is required</div>
+                                <div *ngIf="createProfile.controls['mobile'].errors.pattern ">* Only numbers are allowed</div>
+                                <div *ngIf="createProfile.controls['mobile'].errors.maxlength">* Maximum 10 character</div>
+
+                             </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                   <div class="question">
+                                      <input type="text"  formControlName="email"  />
+                                      <label>Email</label>
+                                    </div>
+                                    <div  class="web_error" *ngIf="createProfile.controls['email'].invalid && (createProfile.controls['email'].dirty || createProfile.controls['email'].touched)" >
+                                      <div *ngIf="createProfile.controls['email'].errors.required">* Email id is required</div>
+                                      <div *ngIf="createProfile.controls['email'].errors.email ">* Enter valid email id</div>
+                                      <!-- <div *ngIf="createProfile.controls['email'].errors.maxlength ">* Maximum 25 character</div> -->
+                                  </div>
+                               </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        User Bio
+                                    <div class="question" >
+                                       <textarea name="" id="" placeholder="Tell us something about yourself! " formControlName="biography" ></textarea>
+                                       <!-- <label>Phone number formGroupName="profile"</label>(min length 150 chars) -->
+                                     </div>
+                                </div>
+
+                            </div>
+                    </div>  <div class="clear"></div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="btn_align_right">
+                              <button  class="submit" [disabled]="!createProfile.controls['mobile'].valid || loader" #button><i class="fa fa-spinner fa-spin" *ngIf="loader"></i> SUBMIT </button>
+                              <a (click)="editProfile()" class="cancel">CANCEL</a>
+                            </div>
+                        </div>
+                    </div>
+          </form>
+      </div>
+</div>
+<app-user-profile *ngIf="show_div"></app-user-profile>

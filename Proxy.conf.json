@@ -1,0 +1,8 @@
+{  
+    "/api/*": {  
+       "target": "https://www.analyticssteps.com/backend/",  
+       "secure": true,  
+       "logLevel": "debug",
+       "changeOrigin": true  
+    }  
+ } 

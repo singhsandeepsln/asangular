@@ -1,0 +1,34 @@
+<div class="new_section">  <app-loader-small *ngIf="loader==true"></app-loader-small>
+    <div class="clearfix"></div>
+        <div class="left_news" *ngIf="loader==false">
+            <h2>In the news</h2>
+          
+            <ul> 
+                <li *ngFor="let data of left_data" >
+                    <a routerLink="/news"  fragment="news_id_{{data.id}}" >{{ (data?.title.length>80)? (data?.title | slice:0:80)+'...':(data?.title) }}</a>
+                </li>
+                <!-- <li><a href="#">Simplifying Google AI’s Best Paper at ICML
+                    2019 on Unsupervised Learning</a></li>
+                <li><a href="#">How do Transformers Work in NLP? A Guide
+                    to the Latest State-of-the-Art Models</a></li> -->
+            </ul>
+          <!-- <span class="ai_certification">
+              <a>Cool Job Titles AI Certification Can Get You in the Future.  </a>
+          </span> -->
+        </div>
+        <div class="right_news">
+            <ul>
+                <li *ngFor="let newslist of right_data">
+                    <a  routerLink="/news" fragment="news_id_{{newslist.id}}">
+                        <img src="{{chcek_url}}{{newslist?.thumbnail}}" alt="news image missing">
+                       <span class="news_text">
+                            <h2> {{newslist?.title}}</h2>
+                            <!-- <p [innerHtml]="newslist?.description  | slice:0:60"> </p> -->
+                       </span>
+                    </a>
+                </li>
+              
+               <div class="clear"></div>
+            </ul>
+        </div><div class="clear"></div>
+   </div>

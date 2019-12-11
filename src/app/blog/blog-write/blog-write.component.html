@@ -1,0 +1,246 @@
+<section class="banner_inner">
+	<img src="/assets/images/blog-write-banner.jpg" alt="" class="d-none  d-sm-block">
+    <img src="assets/images/career/write-blog-banner.jpg" alt="" class="d-block  d-sm-none">
+</section>
+
+<section class="mid_cont">
+
+	<div class="container"><div class="blog_write">
+		<h3 class="blog_head">Write a Blog!
+</h3>
+	 	<p >Are you a tech savvy and technology entices you? Or is it something that you wish for! So, what is the wait about, grab your lap-tabs and start writing about technology that shapes the analytics of data and certainly something that credits some value to the mysterious and unknown arch of the future!
+			</p><br>
+
+			<p>
+				If you are profoundly into technical writing and the zeal of technology stimulates your instinctive WRITER of WITHIN. Then, this can be your great opportunity! Join and narrate the journal of your writing in the form of dazzling blogs on Machine Learning, Deep Learning, Artificial Intelligence, Big Data and many more! straight from the dominion of ‘Analytics’. If your blogs are convincing enough then our team, on proper consideration, award monetary incentives to you and you get a constant source of narrating your thoughts on our platform after hopping you in a conversation over your personal mail for fixtures of content and context. Furthermore, it brings you more fame as we are going to feature you on our website and your profile will perceive the audience from across boundaries!
+
+			</p><br>
+			<p>Vivify the way you write and diverse the audience you write for? </p>
+
+		</div></div>
+
+	<div class="container mt-5" id="write">
+
+	<div class="user_box" *ngIf="login_check_user==true">
+		<div class="user_img">
+			<div class="top_lft_img">
+			<div class="box_left">
+				<img src="{{media_url}}{{user_profile_data.profile_pic}}" alt=""  *ngIf="user_profile_data.profile_pic">
+				<img src="/assets/images/icons/user_default.jpg" alt="" *ngIf="user_profile_data.profile_pic==null">
+			</div>
+			<!-- <img alt="image missing" class="add_img" src="assets/images/icons/add_profile_pic.png" routerLink="/profile"> -->
+		</div>
+
+
+			<!-- <img src="/assets/images/icons/image_upload.png" alt=""> -->
+			<!-- <span>Profile Image</span> -->
+		</div>
+
+		<div class="user_name">
+			<label>Name : <span class="pro_detail">{{user_profile_data.name}}</span></label>
+			<label>Email : <span class="pro_detail">{{user_profile_data.email}}</span></label>
+		</div>
+		<div class="user_name">
+			<label>Phone Number : <span class="pro_detail pro_detail_mobile">{{user_profile_data.mobile}}</span></label>
+		</div>
+	</div>
+
+
+	<div class="user_box user_box_form ">
+		 <form [formGroup]="Blog_Request_Form" (ngSubmit)="onSubmit()">
+	<div class="row"><div class="from_u_left"><label>User Bio</label></div><div class="from_u_ri">
+		<textarea placeholder="User Bio" class="form-control" formControlName="biography"></textarea>
+			<div class="web_error" *ngIf="Blog_Request_Form.controls['biography'].invalid && (Blog_Request_Form.controls['biography'].dirty || Blog_Request_Form.controls['biography'].touched)" >
+			<div *ngIf="Blog_Request_Form.controls['biography'].errors.required">*User bio is required</div>
+			</div>
+
+	</div>	</div>
+	<div class="row mt-4"><div class="from_u_left"><label >Upload</label></div><div class="from_u_ri">
+		<div class="custom-file">
+		  <input type="file" class="custom-file-input" id="customFile" accept=".doc,.docx,.pdf"  (change)="onSelectedFile($event)" formControlName="document">
+		  <label class="custom-file-label" for="customFile">{{document_name}}</label>
+		</div>
+
+<!--		<input type="file" class="form-control-file" id="exampleFormControlFile1"/>-->
+		<span class="attch">*Attach only  doc, docx & .pdf file</span>
+		<!-- <span *ngIf="document_name"><br> </span> -->
+		<!-- <div class="web_error" *ngIf="Blog_Request_Form.controls['document'].invalid && (Blog_Request_Form.controls['document'].dirty || Blog_Request_Form.controls['document'].touched)" >
+				<div *ngIf="Blog_Request_Form.controls['document'].errors.required">* Document is Required</div>
+		</div> -->
+		</div>	</div>
+
+		<div class="row"><div class="from_u_left"></div><div class="from_u_ri">
+		<button type="submit" class="btn_submit"  [disabled]="Blog_Request_Form.invalid || loader_blog_write "><i class="fa fa-spinner fa-spin" *ngIf="loader_blog_write"></i> SUBMIT</button>
+		<p class="attch">*Please read <a routerLink="/terms-of-use">terms and conditions</a> carefully before uploading your blog.</p>
+
+		</div>	</div>
+		</form>
+	</div><!-- end  -->
+
+
+	</div>
+	<div class="clearfix"></div>
+	<!-- start here -->
+    </section>
+	<div class="clearfix"></div>
+
+
+
+	<!--- 	------		---------		Pop start 				-->
+<!--    -----  Login pop up     ----------                       -->
+<ng-template #popup_login let-modal >
+<!-- Modal body -->
+<div class="login_pop_up">
+<div class="modal-body">
+	<img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+<div class="logn_left">
+				<h3>Login</h3>
+				<h4>Don't miss your next opportunity <strong>Login now!</strong></h4>
+				<div class="login_form">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit_login()">
+
+				<div class="row">
+					<div class="col-lg-12">   <div class="question">
+							<input type="text" required formControlName="username" />
+							<label>Username/Email</label>
+						</div></div>   </div>
+						<div class="clearfix"></div>
+					<div class="row">
+					<div class="col-lg-12">    <div class="question">
+						<input type="password" required formControlName="password" />
+						<label>Password</label>
+						</div></div>
+						</div>
+
+						<div class="clearfix"></div>
+						<div class="row">
+						<div class="col-lg-12"><button type="submit" class="btn_login"  [disabled]="!loginForm.valid ">LOGIN <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+						</div>
+
+						<div class="row">
+								<div class="col-lg-12"><p class="login_note"><a (click)="pop_forget_password()">Forgot Password?</a> <a (click)="pop_register(popup_register)" class="float-right">Register Now</a></p></div>
+						</div>
+						<div class="row">
+						<div class="col-lg-12">
+								<app-social [hero]="'blog_page'"></app-social>
+						 </div>
+						</div>
+						<!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a href="#" >Login</a></p></div> -->
+
+
+				</form>
+				</div>
+				</div>
+
+
+</div></div>
+
+<!-- Modal footer -->
+</ng-template>
+
+
+
+<ng-template #popup_register let-modal >
+				<div class="register_pop_up">
+						<div class="modal-body">
+							<img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+				<div class="logn_left">
+
+					<div class="as_container">
+
+			<h3>Register to Analytics Steps!</h3>
+			<h4>Enter the new world of Blogging! <strong>Register Now.</strong></h4>
+				<div class="login_form">
+
+						<form [formGroup]="registerForm" (ngSubmit)="onSubmit_register(popup_login)">
+
+										<div class="row">
+												<div class="col-lg-6">   <div class="question">
+														<input type="text" required  formControlName="name"/>
+														<label>Full name</label>
+														<div  class="web_error" *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" >
+														<div *ngIf="registerForm.controls['name'].errors.required">* Full name is required</div>
+														<!-- <div *ngIf="registerForm.controls['name'].errors.email ">* Enter valid email id</div> -->
+													</div>
+													</div>
+
+													</div>
+													<div class="col-lg-6">
+													<div class="question">
+														<input type="text" required  formControlName="username"/>
+														<label>Username</label>
+														<div class="web_error" *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)" >
+														<div *ngIf="registerForm.controls['username'].errors.required">* Username is required</div>
+														<!-- <div *ngIf="registerForm.controls['username'].errors.email ">* Enter valid email id</div> -->
+													</div>
+													</div>
+
+													</div>
+												<div class="col-lg-6">    <div class="question">
+														<input type="text" required formControlName="mobile" maxlength="10"/>
+														<label>Phone number</label>
+														<div  class="web_error" *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)" >
+															<div *ngIf="registerForm.controls['mobile'].errors.required">* Mobile number is required</div>
+															<!-- <div *ngIf="registerForm.controls['mobile'].errors.email ">* Enter valid email id</div> -->
+														</div>
+													</div>
+
+													</div>
+												<div class="col-lg-6">     <div class="question">
+														<input type="text" required formControlName="email"/>
+														<label>Email</label>
+														<div  class="web_error" *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" >
+															<div *ngIf="registerForm.controls['email'].errors.required">* Email id is required</div>
+															<div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div>
+														</div>
+													</div>
+
+													</div>
+												<div class="col-lg-6">    <div class="question">
+													<input type="password" required formControlName="password"/>
+													<label>Password</label>
+													<div  class="web_error" *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" >
+														<div *ngIf="registerForm.controls['password'].errors.required">* password  is required</div>
+														<!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+													</div>
+													</div>
+
+													</div>
+												<div class="col-lg-6">    <div class="question">
+													<input type="password" required formControlName="confirm_password"/>
+													<label>Confirm password</label>
+													<div  class="web_error" *ngIf="registerForm.controls['confirm_password'].invalid && (registerForm.controls['confirm_password'].dirty || registerForm.controls['confirm_password'].touched)" >
+														<div *ngIf="registerForm.controls['confirm_password'].errors.required">* Confirm password is required</div>
+														<!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+													</div>
+													</div>
+
+													</div>
+													<div class="clearfix"></div>
+													<div class="col-lg-6">
+														<button type="submit" class="btn_login"  [disabled]="registerForm.invalid || loader_register ">
+															<i class="fa fa-spinner fa-spin" *ngIf="loader_register"></i> REGISTER <img src="./assets/images/icons/news_arrow.png" alt="" >
+														</button> </div>
+
+ <!-- <div class="col-lg-12">
+	 <p class="">Already have an account?
+		 <a (click)="pop_register(popup_login)" class="login_txt_">Login</a>
+		</p>
+	</div> -->
+
+<div class="col-lg-12"><p class="login_note">Note: By registering with us, you are agreeing to our <a href="/privacy-policy" >Privacy Policy</a></p></div>
+
+													<div class="col-lg-8">
+														<app-social [hero]="'blog_page'"></app-social>
+													</div>
+													<div class="col-lg-12"><p class="login_accnt">Already have an account?  <a  (click)="pop_register(popup_login)">Login</a></p></div>
+										</div>
+
+											</form>
+
+
+				</div>
+			</div></div>
+		</div></div>
+</ng-template>

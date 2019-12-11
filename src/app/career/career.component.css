@@ -1,0 +1,167 @@
+@charset "UTF-8";
+.career_banner img{ width: 100%;}
+.career_opening ul{ margin-bottom: 80px;margin-top:76px;}
+.career_heading{ font-family: 'roboto'; font-size: 24px; font-weight: 700;color: #000000;line-height: 20px; padding-bottom: 40px; border-bottom: solid 1px #e3e6e6 !important;}
+.career_opening ul li{ list-style: none;}
+::ng-deep .card {
+background:#fff;
+border-bottom: solid 1px #e3e6e6 !important;
+border-right: none !important;
+border-left: none !important;
+border-top: none !important;
+}
+
+::ng-deep .card-header{
+background:#fff;
+padding-left: 0px;
+padding-right: 10px;
+padding-top: 30px;
+padding-bottom: 30px;
+border-bottom: none !important;
+  }
+  ::ng-deep .card.title{ border:none;border-bottom: none !important;display: inline-block;width: 100%;}
+  ::ng-deep .card .btn-link{ width:100%; text-align: left; padding-left: 0px;position: relative; padding-top: 23px; padding-bottom: 23px;}
+  ::ng-deep .card .btn-link .steps{ display: inline-block; font-family: 'roboto'; font-size: 24px; font-weight: 500; color: #314f74;line-height: 20px;}
+  ::ng-deep .card .btn-link .job_detail{ display: inline-block;color:#6b6b6b;font-family: 'roboto'; font-size: 14px; font-weight: 400;position: absolute;left: 0; right: 0;width: 221px; margin-left: auto;margin-right: auto;margin-top: 0px; }
+  ::ng-deep .card .btn-link .job_detail span img{margin-right: 10px;}
+  ::ng-deep .card .btn-link .job_detail .emp_location{margin-left: 20px;}
+  ::ng-deep .card .btn.btn-link{background: url(../../assets/images/career/minus.jpg) right center no-repeat;padding-right: 46px;}
+  ::ng-deep .card .btn.btn-link.collapsed{background: url(../../assets/images/career/plus.jpg) right center no-repeat;padding-right: 46px;}
+  ::ng-deep .card  .card-body{padding-left: 0px;}
+  .career_form{ padding-bottom: 80px;}
+  .margin-bottom{margin-bottom: 40px;}
+  .form-control{height: 48px;border:solid 1px #e3e6e6;line-height: 33px;}
+  .file_name{ margin-top:10px;}
+  .custom-file-label::after{ content: '' !important; background: url(../../assets/images/career/upload_icon.png) right center no-repeat;border-left: none;
+    background-position: 0 12px;
+    width: 33px;}
+  .select_career{-webkit-appearance: none; -moz-appearance: none;appearance: none; background: url(../../assets/images/career/caret.png) right center no-repeat; background-position: 99%;color: #6c757d;}
+  .career_submit{ width: 165px; background: #314f74; line-height: 48px;padding: 0;
+    border: none; color: #fff; font-family: 'roboto'; font-weight: 500; font-size: 16px;}
+  :disabled{cursor: not-allowed;}
+  ::ng-deep .job_content h3{font-family: 'roboto'; font-weight: 400; font-size: 16px;line-height: 22px;margin-bottom: 5px;}
+  ::ng-deep .job_content ul{ list-style: none; display: block; width: 100%;margin: 0px;font-family: 'roboto'; font-weight: 400; font-size: 16px; padding-left: 24px;}
+  ::ng-deep  .job_content ul li{position: relative; padding-left: 20px;line-height:24px;margin-bottom: 4px;}
+  ::ng-deep .job_content ul li::before{content: ''; width: 6px; height: 6px; position: absolute; left: 0; background: #000000; border-radius:50%;top: 9px;}
+  .upload_r{ border-bottom: none !important;}
+
+  @media(max-width:991px){
+    .margin-bottom{margin-bottom: 20px}
+    .margin-top-sa{margin-top:20px;}
+    .career_submit{margin-top:20px;}
+    .select_career{background-position: 95%;}
+  }
+
+  @media(max-width:767px){
+    ::ng-deep  .card .btn-link .steps{display: block;font-size: 19px;}
+    ::ng-deep .card .btn-link .job_detail{ display: block; margin: 10px 0 0 0;position: static;}
+    .career_heading{font-size: 21px;}
+  }
+
+  /*--------------------  --- ------------- -----------------  pop up for login register here   ----------------- -------------  */
+
+
+  .login_box{width: 100%;float: left;}
+
+.logn_left{width: 55%;float: left;}
+.reg_right{width: 45%;float: left;height: 100vh;background: #eef6ff;}
+.reg_right img{width: 100%;}
+
+.logn_left .as_container{max-width: 680px;}
+.logn_left .as_container .login_logo{margin: 54px 0 140px;display: inline-block;}
+
+
+.logn_left h3{font-weight: 600;font-size: 36px;color: #314f74;font-family:'roboto';}
+.logn_left h4{font-weight: 400;font-size: 16px;color: #000000;font-family:'roboto';margin:4px 0 16px;}
+.logn_left h4 strong{color: #314f74;font-weight: 400;}
+.logn_left .btn_login{background: #314f74;color: #fff;font-weight: 400;font-size: 16px;font-family:'roboto';border-radius: 25px;display: inline-block;border: none;width: 100%;padding: 14px 5px;margin:19px 0 0;}
+.logn_left .btn_login img{width: 19px;margin-left: 15px;margin-top: -2px;}
+.logn_left .login_note{font-weight: 400;font-size: 16px;color: #000000;font-family:'roboto';margin: 23px 0 34px;}
+.logn_left .login_note a{color: #314f74}
+.logn_left .btn_google_login{background: #518ef8;color: #fff;font-weight:300;font-size: 16px; font-family:'roboto';border-radius: 5px;padding:9px 30px;float: left;width: 100%;line-height: 30px;text-align: center;}
+.logn_left .btn_google_login img{margin-right: 8px;}
+.logn_left .login_accnt{font-weight: 400;font-size: 16px;color: #000000;font-family:'roboto';margin: 47px 0 0;}
+.logn_left .login_accnt a{color: #314f74;font-weight: 600;}
+
+/*---------------------     input text -------------------       */  
+.transition, form button, form .question label, form .question input[type="text"],form .question input[type="password"] {-moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+-o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);-webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);}
+
+form .question {position: relative;margin:13px 0; }
+form .question:first-of-type {padding-top: 0;}
+form .question:last-of-type {padding-bottom: 0;}
+form .question label {transform-origin: left center;color: #000000;font-weight: 400;letter-spacing: 0.01em;font-size: 16px;box-sizing: border-box;
+padding: 0px 15px;display: block;position: absolute;margin-top: -40px;z-index: 2;pointer-events: none;font-family:'roboto';}
+form .question input[type="text"] ,form .question input[type="password"] {appearance: none;background-color: none;border: 1px solid #b2c6de;line-height: 0;
+font-size: 16px;width: 100%;height: 54px;display: block;box-sizing: border-box;padding:10px 15px 0;border-radius: 5px;color: #67809f;font-weight: 400;
+letter-spacing: 0.01em;position: relative;z-index: 1;font-family:'roboto';}
+form .question input[type="text"]:hover ,form .question input[type="password"]:hover{border: 1px solid #314f74;}
+form .question input[type="text"]:focus,form .question input[type="password"]:focus {outline: none;background: #fff;color: #67809f;padding-top:20px;}
+form .question input[type="text"]:valid,form .question input[type="password"]:valid {padding-top: 20px;}
+
+form .question input[type="text"]:focus ~ label,form .question input[type="password"]:focus ~ label {-moz-transform: translate(0, -10px);-ms-transform: translate(0, -10px);-webkit-transform: translate(0, -10px);
+transform: translate(0, -10px);}
+form .question input[type="text"]:valid ~ label,form .question input[type="password"]:valid ~ label {-moz-transform: translate(5px, -10px) scale(0.8);
+-ms-transform: translate(5px, -10px) scale(0.8);-webkit-transform: translate(5px, -10px) scale(0.8);transform: translate(5px, -10px) scale(0.8);}
+
+/* .main_blog_ri .right_blog_list ul li:hover{cursor: inherit;}
+.main_blog_ri .right_blog_list ul li p:hover{cursor: inherit;} */
+/*---------------------     input text -------------------       */  
+
+
+.comnt_div  textarea{min-height: 45px !important; height: calc(1.5em + .75rem + 2px);}
+
+ /*- ---------------: - -------------: login pop up set -----------*/
+ .login_pop_up .logn_left{width: 375px ; margin: 0 auto;float: none;margin-top: 62px;position: relative;}
+ .login_pop_up.modal-dialog {max-width: 740px;}
+ .login_pop_up .modal-body{ background-image: url("/assets/images/login-left_bg.png"), url("/assets//images/login-right.png");background-position: left top, right top;
+ background-repeat: no-repeat, no-repeat;min-height: 616px;}
+ .login_pop_up  .close,.register_pop_up  .close{ cursor: pointer;}
+ 
+
+/*-------  --------  */
+.register_pop_up .logn_left{width: 527px ; margin: 0 auto;float: none;margin-top: 50px;position: relative;}
+.register_pop_up.modal-dialog {max-width: 740px;}
+.register_pop_up .modal-body{ background-image: url("/assets/images/register_left.png"), url("/assets/images/register_right.png");background-position: left top, right bottom;background-repeat: no-repeat, no-repeat;min-height: 616px;}
+.register_pop_up .logn_left .btn_google_login{padding: 9px 0px;}
+.register_pop_up .logn_left .login_accnt{margin: 20px 0 20px;}
+.register_pop_up .logn_left .login_note,.register_pop_up .logn_left h4{font-size: 13px;}
+
+ 
+  /*- ---------------: - -------------: login pop up set -----------*/
+ 
+  .career_form .custom-file-label{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;padding-right: 50px;color:#6c757d;}
+@media (max-width:768px) {
+  .login_pop_up .logn_left ,.register_pop_up .logn_left {width: 90%;}
+  .logn_left .btn_google_login{padding: 9px 10px;}
+  }
+  
+  
+  /*----------------------------      logn regsiter pop up css set    --------------- */
+  @media (max-width:991px) {
+   .user_box .user_img{padding-right: 20px;}
+   /* .user_box .user_img img{width: 100%;} */
+  }
+  @media (max-width:767px) {
+  .user_box .from_u_left,.user_box .from_u_ri {width: 90%;margin-left: 5%;}
+  .user_box .user_img{padding-right:0px;margin: 0 auto;width: 200px;text-align: center;float: none;}
+  .user_box .user_name{width: 100%; padding: 0px 0 0; }
+  .user_name  label{margin: 5px 0;font-size: 16px;}
+  .blog_write p{text-align: left;}
+  .user_box .btn_submit{margin: 15px 0 20px;}
+  .user_box {padding: 22px 15px 10px;}
+  .register_pop_up .modal-body,.login_pop_up .modal-body{background-image:none} 
+  .logn_left h3{font-size: 18px;} .btn_google_login{padding: 9px 20px;}
+ 
+  }
+  
+
+
+
+
+
+
+
+
+

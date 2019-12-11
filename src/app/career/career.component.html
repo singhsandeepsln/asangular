@@ -1,0 +1,316 @@
+<div class="career_banner">
+    <img src="assets/images/career/banner.jpg" alt="" class="d-none  d-sm-block">
+    <img src="assets/images/career/career-banner.jpg" alt="" class="d-block  d-sm-none">
+</div>
+
+<div class="career_opening container">
+    <ul>
+           <h2 class="career_heading"> HOT VACANCIES</h2>
+        <li *ngFor="let list of career_data">
+
+                      <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
+                            <ngb-panel>
+                                    <ng-template ngbPanelTitle>
+                                            <div class="card title">
+                                                <span class="steps">{{list?.job_profile}}</span>
+                                                <div class="job_detail">
+                                                    <span><img src="assets/images/career/years_exp.png" alt="image missing">{{list?.experience}}</span>
+                                                    <span class="emp_location"><img src="assets/images/career/location.png" alt="image missing">{{list?.location}}</span>
+
+                                                </div>
+                                            </div>
+                                          </ng-template>
+
+                                      <ng-template ngbPanelContent>
+                                          <div class="job_content" [innerHTML]="list?.description">
+
+                                                <!-- <h3>This role is best suited for:</h3> -->
+                                              <!-- <ul>
+                                                  <li  ></li>
+
+                                              </ul> -->
+                                          </div>
+
+                                      </ng-template>
+                                    </ngb-panel>
+                            <!-- <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                    <div class="card title">
+                                        <span class="steps">{{career_data[0]?.job_profile}}</span>
+                                        <div class="job_detail">
+                                            <span><img src="assets/images/career/years_exp.png" alt="image missing">{{career_data[0]?.experience}}</span>
+                                            <span class="emp_location"><img src="assets/images/career/location.png" alt="image missing">{{career_data[0]?.location}}</span>
+
+                                        </div>
+                                    </div>
+                                  </ng-template>
+
+                              <ng-template ngbPanelContent>
+                                    {{career_data[0]?.description}}
+                              </ng-template>
+                            </ngb-panel> -->
+                            <!-- <ngb-panel>
+                                    <ng-template ngbPanelTitle>
+                                            <div class="card title"><span class="steps">{{career_data[1]?.job_profile}}</span>
+                                                <div class="job_detail">
+                                                    <span><img src="assets/images/career/years_exp.png" alt="image missing">{{career_data[1]?.experience}}</span>
+                                                    <span class="emp_location"><img src="assets/images/career/location.png" alt="image missing">{{career_data[1]?.location}}</span>
+                                                </div>
+                                             </div>
+                                          </ng-template>
+
+                                      <ng-template ngbPanelContent>
+                                            {{career_data[1]?.description}}
+                                      </ng-template>
+                                    </ngb-panel>
+                                    <ngb-panel>
+                                            <ng-template ngbPanelTitle>
+                                                    <div class="card title"><span class="steps">{{career_data[2]?.job_profile}}</span>
+                                                        <div class="job_detail">
+                                                            <span><img src="assets/images/career/years_exp.png" alt="image missing">{{career_data[2]?.experience}}</span>
+                                                            <span class="emp_location"><img src="assets/images/career/location.png" alt="image missing">{{career_data[2]?.location}}</span>
+                                                        </div>
+                                                    </div>
+                                                  </ng-template>
+
+                                              <ng-template ngbPanelContent>
+                                                    {{career_data[2]?.description}}
+                                              </ng-template>
+                                            </ngb-panel> -->
+
+                          </ngb-accordion>
+        </li>
+    </ul>
+
+</div>
+<div class="career_form">
+        <div class="container">
+                <h2 class="career_heading upload_r" > UPLOAD YOUR RESUME HERE</h2>
+<form [formGroup]="careerForm" (ngSubmit)="onSubmit()">
+<div class="row  margin-bottom">
+<div class="col-lg-12">
+<!-- <input type="text" class="form-control" placeholder="Applying for" formControlName="job_profile"> -->
+<select name="" id="" class="form-control select_career" formControlName="job_profile">
+        <option  value="" selected>Applying for</option>
+    <option *ngFor="let n_list of career_data" value="{{n_list?.job_profile}}">{{n_list?.job_profile}}</option>
+</select>
+    <div  class="web_error" *ngIf="careerForm.controls['job_profile'].invalid && (careerForm.controls['job_profile'].dirty || careerForm.controls['job_profile'].touched)" >
+        <div *ngIf="careerForm.controls['job_profile'].errors.required">* Post is  required</div>
+    </div>
+</div>
+</div>
+<div class="row  margin-bottom">
+<div class="col-lg-6">
+        <input type="text" class="form-control" placeholder="First Name" formControlName="first_name">
+            <div  class="web_error" *ngIf="careerForm.controls['first_name'].invalid && (careerForm.controls['first_name'].dirty || careerForm.controls['first_name'].touched)" >
+            <div *ngIf="careerForm.controls['first_name'].errors.required">* First name is required</div>
+            <div *ngIf="careerForm.controls['first_name'].errors.maxlength ">* Maximum 25 character</div>
+            <div *ngIf="careerForm.controls['first_name'].errors.minlength ">* Minimum 3 character</div>
+            </div>
+    </div>
+    <div class="col-lg-6">
+            <input type="text" class="form-control margin-top-sa" placeholder="Last Name" formControlName="last_name">
+                  <div  class="web_error" *ngIf="careerForm.controls['last_name'].invalid && (careerForm.controls['last_name'].dirty || careerForm.controls['last_name'].touched)" >
+         <div *ngIf="careerForm.controls['last_name'].errors.required">* Last name is required</div>
+         <div *ngIf="careerForm.controls['last_name'].errors.maxlength ">* Maximum 25 character</div>
+         <div *ngIf="careerForm.controls['last_name'].errors.minlength ">* Minimum 3 character</div>
+        </div>
+        </div>
+</div>
+    <div class="row  margin-bottom">
+    <div class="col-lg-6">
+    <input type="text" class="form-control" placeholder="Email ID" formControlName="email">
+        <div  class="web_error" *ngIf="careerForm.controls['email'].invalid && (careerForm.controls['email'].dirty || careerForm.controls['email'].touched)" >
+         <div *ngIf="careerForm.controls['email'].errors.required">* Email Id is required</div>
+         <div *ngIf="careerForm.controls['email'].errors.email">* Please enter valid email</div>
+         <div *ngIf="careerForm.controls['email'].errors.maxlength ">* Maximum 25 character</div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+    <input type="text" class="form-control margin-top-sa" placeholder="Phone Number" formControlName="phone" maxlength="10">
+        <div  class="web_error" *ngIf="careerForm.controls['phone'].invalid && (careerForm.controls['phone'].dirty || careerForm.controls['phone'].touched)" >
+         <div *ngIf="careerForm.controls['phone'].errors.required">* Phone number is required</div>
+         <div *ngIf="careerForm.controls['phone'].errors.pattern">* Please enter numbers only</div>
+         <div *ngIf="careerForm.controls['phone'].errors.maxlength">*Only 10 digit mobile number is allowed</div>
+         <div *ngIf="careerForm.controls['phone'].errors.minlength ">* Minimum 10 character</div>
+        </div>
+    </div>
+    </div>
+            <div class="row margin-bottom">
+                <div class="col-lg-6">
+                        <!-- <input type="file" class="form-control" placeholder="Upload Resume" > -->
+            <div class="custom-file">
+                <input type="file"  class="custom-file-input form-control" id="customFile" formControlName="resume" (change)="onFileSelected($event)" accept=".docx,.doc,.pdf">
+                <label class="custom-file-label form-control" for="customFile">{{fileName}}</label>
+
+            </div>
+            <div class="clearfix"></div>
+
+                <!-- <div  class="web_error mt-2" *ngIf="careerForm.controls['resume'].invalid && (careerForm.controls['resume'].dirty || careerForm.controls['resume'].touched)" >
+                  <div *ngIf="careerForm.controls['resume'].errors.required">* Resume is Required</div>
+                </div>  -->
+                <div class="clearfix"></div>
+
+                <!-- <span class="mt-2 d-block">{{fileName}}</span> -->
+            </div>
+            <div class="col-lg-6">
+                <button class="career_submit"  [disabled]="!careerForm.valid || loading " > <i class="fa fa-spinner fa-spin" *ngIf="loading"></i> SUBMIT</button>
+            </div>
+            </div>
+        </form>
+
+        </div>
+    </div>
+
+
+	<!--- 	------		---------		Pop start 				-->
+<!--    -----  Login pop up     ----------                       -->
+<ng-template #popup_login let-modal >
+<!-- Modal body -->
+<div class="login_pop_up">
+<div class="modal-body">
+    <img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+<div class="logn_left">
+                <h3>Login</h3>
+                <h4>Don't miss your next opportunity <strong>Login now!</strong></h4>
+                <div class="login_form">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit_login()">
+
+                <div class="row">
+                    <div class="col-lg-12">   <div class="question">
+                            <input type="text" required formControlName="username" />
+                            <label>Username/Email</label>
+                        </div></div>   </div>
+                        <div class="clearfix"></div>
+                    <div class="row">
+                    <div class="col-lg-12">    <div class="question">
+                        <input type="password" required formControlName="password" />
+                        <label>Password</label>
+                        </div></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="row">
+                        <div class="col-lg-12"><button type="submit" class="btn_login"  [disabled]="!loginForm.valid ">LOGIN <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-lg-12"><p class="login_note"><a (click)="pop_forget_password()">Forgot Password?</a> <a (click)="pop_register(popup_register)" class="float-right">Register Now</a></p></div>
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-12">
+                                <app-social [hero]="'blog_page'"></app-social>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a href="#" >Login</a></p></div> -->
+
+
+                </form>
+                </div>
+                </div>
+
+
+</div></div>
+
+<!-- Modal footer -->
+</ng-template>
+
+
+
+<ng-template #popup_register let-modal >
+                <div class="register_pop_up">
+                        <div class="modal-body">
+                            <img src="/assets/images/icons/pop-cross.png" alt="cross POP up" class="close" (click)="modal.close('Save click')" >
+                <div class="logn_left">
+
+                    <div class="as_container">
+
+            <h3>Register to Analytics Steps!</h3>
+            <h4>Enter the new world of Blogging! <strong>Register Now.</strong></h4>
+                <div class="login_form">
+
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit_register(popup_login)">
+
+                                        <div class="row">
+                                                <div class="col-lg-6">   <div class="question">
+                                                        <input type="text" required  formControlName="name"/>
+                                                        <label>Full name</label>
+                                                        <div  class="web_error" *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" >
+                                                        <div *ngIf="registerForm.controls['name'].errors.required">* Full name is required</div>
+                                                        <!-- <div *ngIf="registerForm.controls['name'].errors.email ">* Enter valid email id</div> -->
+                                                    </div>
+                                                    </div>
+
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                    <div class="question">
+                                                        <input type="text" required  formControlName="username"/>
+                                                        <label>Username</label>
+                                                        <div class="web_error" *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)" >
+                                                        <div *ngIf="registerForm.controls['username'].errors.required">* Username is required</div>
+                                                        <!-- <div *ngIf="registerForm.controls['username'].errors.email ">* Enter valid email id</div> -->
+                                                    </div>
+                                                    </div>
+
+                                                    </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                        <input type="text" required formControlName="mobile" maxlength="10"/>
+                                                        <label>Phone number</label>
+                                                        <div  class="web_error" *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)" >
+                                                            <div *ngIf="registerForm.controls['mobile'].errors.required">* Mobile number is required</div>
+                                                            <!-- <div *ngIf="registerForm.controls['mobile'].errors.email ">* Enter valid email id</div> -->
+                                                        </div>
+                                                    </div>
+
+                                                    </div>
+                                                <div class="col-lg-6">     <div class="question">
+                                                        <input type="text" required formControlName="email"/>
+                                                        <label>Email</label>
+                                                        <div  class="web_error" *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" >
+                                                            <div *ngIf="registerForm.controls['email'].errors.required">* Email id is required</div>
+                                                            <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div>
+                                                        </div>
+                                                    </div>
+
+                                                    </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                    <input type="password" required formControlName="password"/>
+                                                    <label>Password</label>
+                                                    <div  class="web_error" *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" >
+                                                        <div *ngIf="registerForm.controls['password'].errors.required">* Password  is required</div>
+                                                        <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                                                    </div>
+                                                    </div>
+
+                                                    </div>
+                                                <div class="col-lg-6">    <div class="question">
+                                                    <input type="password" required formControlName="confirm_password"/>
+                                                    <label>Confirm password</label>
+                                                    <div  class="web_error" *ngIf="registerForm.controls['confirm_password'].invalid && (registerForm.controls['confirm_password'].dirty || registerForm.controls['confirm_password'].touched)" >
+                                                        <div *ngIf="registerForm.controls['confirm_password'].errors.required">* Confirm password is required</div>
+                                                        <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                                                    </div>
+                                                    </div>
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-lg-6"><button type="submit" class="btn_login"><i class="fa fa-spinner fa-spin" *ngIf="loader_register"></i> REGISTER <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+
+    <div class="col-lg-12"><p class=""><a (click)="pop_register(popup_login)" class="login_txt_">Login now</a></p></div>
+
+<div class="col-lg-12"><p class="login_note">Note: By registering with us, you are agreeing to our <a href="/privacy-policy" >Privacy Policy</a></p></div>
+
+                                                    <div class="col-lg-6">
+                                                        <app-social [hero]="'blog_page'"></app-social>
+                                                    </div>
+                                                    <!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a   >Login</a></p></div> -->
+                                        </div>
+
+                                            </form>
+
+
+                </div>
+            </div></div>
+        </div></div>
+</ng-template>

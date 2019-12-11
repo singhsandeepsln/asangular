@@ -1,0 +1,9 @@
+.scroll-to-top {position: fixed;opacity: 0;transition: all .2s ease-in-out;/* bottom: 15px;right: 15px; */}
+.show-scrollTop {opacity: 1;transition: all .2s ease-in-out;}
+
+.bottom_toTop{  right: 30px;height: 40px;width: 40px; bottom:10px; z-index: 1;cursor: pointer;background: #b2c6de;border-radius: 3px;line-height: 40px; text-align: center;}
+.bottom_toTop:hover{background: #314f74}
+@media(max-width:767px){
+    .bottom_toTop{right: 0;}
+}
+

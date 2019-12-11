@@ -1,0 +1,26 @@
+
+
+
+@media(max-width:1547px){
+.subcribe form{width: 90%;}
+.subcribe .question input[type="email"]{ width: 68%;}
+.subs_btn{right: 0;}
+}
+
+
+@media(max-width:1439px){
+.subcribe form{width: 90%;}
+.subcribe .question input[type="email"]{ width: 68%;}
+.subs_btn{right: -33px;}
+.subcribe .question input[type="email"]{padding-right: 13px;}
+}
+
+@media(max-width:768px){
+.social_link li{display: none;}
+.social_links_mobile ul{display: inline-block; width: 100%;margin-bottom: 15px;}
+.social_links_mobile ul li{float: left;margin-right: 30px;}
+.social_link ul li{float: left;width: auto;}
+.subcribe .question input[type="email"]{ width: 100%;}
+.footer_bottom .footer_bottom_left{ width:100%; text-align: center; float: none;display: block;}
+.footer_bottom .footer_bottom_right{ float: none; text-align: center; width: 100%;display: block; margin-top: 10px;}
+}

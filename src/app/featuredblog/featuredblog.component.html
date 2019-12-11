@@ -1,0 +1,30 @@
+
+<app-loader-small *ngIf="loader==true"></app-loader-small>
+<div class="clearfix"></div>
+<div class="latest_blog"  *ngIf="loader==false">
+    <a routerLink="/blogs/{{latest_blog?.slug}}">
+          <img src="{{media_url}}{{latest_blog?.thumbnail}}" alt=" latest blog image missing">
+          <div class="blog_des">
+              <span class="b_date">{{latest_blog?.published_on | date: 'MMM dd, yyyy'}}</span>
+              <span class="b_heading">
+                   {{latest_blog?.title}}
+                 
+              </span>
+           
+              <span class="b_description" [innerHtml]="(latest_blog?.excerpt.length>150)? (latest_blog?.excerpt | slice:0:150)+'...':(latest_blog?.excerpt)"> </span>
+             
+
+          </div>
+    </a>
+  </div>
+  <div class="blog_list" *ngIf="loader==false">
+      <ul>
+          <li *ngFor="let data of blog_list | slice:0:6">
+            <h2><a routerLink="/blogs/{{data?.slug}}">{{   (data?.title.length>40)? (data?.title | slice:0:40)+'...':(data?.title)  }}</a></h2>
+             <p [innerHtml]="(data?.excerpt.length>100)? (data?.excerpt | slice:0:100)+'...':(data?.excerpt)" routerLink="/blogs/{{data?.slug}}"> </p>
+             <a routerLink="/blogs/{{data?.slug}}" class="b_learn_more">LEARN MORE</a>
+          </li>
+         
+          <div class="clear"></div>
+      </ul>
+  </div><div class="clear"></div>

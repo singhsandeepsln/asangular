@@ -1,0 +1,97 @@
+<div class="login_box">
+    <div class="logn_left"><div class="as_container"> 
+      <a routerLink="/home" class="login_logo">
+      <!-- <img src="assets/images/logo.jpg" alt="logo image missing"> -->
+    </a>
+    
+    <h3>Register to Analytics Steps!</h3>
+    <h4>Enter the new world of Blogging! <strong>Register Now.</strong></h4>
+        <div class="login_form">
+  
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  
+               <div class="row">
+                    <div class="col-lg-6">   <div class="question">
+                            <input type="text" required  formControlName="name" maxlength="40"/>
+                            <label>Full name</label>
+                              <div  class="web_error" *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" >
+                              <div *ngIf="registerForm.controls['name'].errors.required">* Full name is required</div>
+                              <div *ngIf="registerForm.controls['name'].errors.maxlength ">* Maximum 25 character</div>
+                              <div *ngIf="registerForm.controls['name'].errors.minlength ">* Minimum 3 character</div>
+                          </div>
+                          </div>
+                        
+                        </div>
+                        <div class="col-lg-6">  
+                           <div class="question">
+                            <input type="text" required  formControlName="username" />
+                            <label>Username</label>  
+                            <div class="web_error" *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)" >
+                              <div *ngIf="registerForm.controls['username'].errors.required">* Username is required</div>
+                              <div *ngIf="registerForm.controls['username'].errors.maxlength ">* Maximum 25 character</div>
+                              <div *ngIf="registerForm.controls['username'].errors.minlength ">* Minimum 3 character</div>
+                              <!-- <div *ngIf="registerForm.controls['username'].errors.email ">* Enter valid email id</div> -->
+                          </div>
+                          </div>
+                        
+                        </div>
+                       <div class="col-lg-6">    <div class="question">
+                            <input type="text" required formControlName="mobile" maxlength="10"/>
+                            <label>Phone number</label>
+                            <div  class="web_error" *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)" >
+                                <div *ngIf="registerForm.controls['mobile'].errors.required">* Mobile number is required</div>
+                                <div *ngIf="registerForm.controls['mobile'].errors.pattern ">* Only numbers are allowed</div>
+                                <div *ngIf="registerForm.controls['mobile'].errors.minlength ">* Minimum 10 character</div>
+                                <div *ngIf="registerForm.controls['mobile'].errors.maxlength ">* Maximum 10 character</div>
+                            </div>
+                          </div>
+                   
+                        </div>
+                      <div class="col-lg-6">     <div class="question">
+                            <input type="text" required formControlName="email"/>
+                            <label>Email</label>
+                            <div  class="web_error" *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" >
+                                <div *ngIf="registerForm.controls['email'].errors.required">* Email id is required</div>
+                                <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div>
+                            </div>
+                          </div>
+                         
+                        </div>
+                       <div class="col-lg-6">    <div class="question">
+                          <input type="password" required formControlName="password"/>
+                          <label>Password</label>
+                          <div  class="web_error" *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" >
+                              <div *ngIf="registerForm.controls['password'].errors.required">* Password  is required</div>
+                              <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                          </div>
+                          </div>
+                        
+                        </div>
+                       <div class="col-lg-6">    <div class="question">
+                          <input type="password" required formControlName="confirm_password"/>
+                          <label>Confirm password</label>
+                          <div  class="web_error" *ngIf="registerForm.controls['confirm_password'].invalid && (registerForm.controls['confirm_password'].dirty || registerForm.controls['confirm_password'].touched)" >
+                              <div *ngIf="registerForm.controls['confirm_password'].errors.required">* Confirm password is required</div>
+                              <!-- <div *ngIf="registerForm.controls['email'].errors.email ">* Enter valid email id</div> -->
+                          </div>
+                          </div>
+                       
+                        </div>
+                          <div class="clearfix"></div>
+                          <div class="col-lg-6"><button type="submit" class="btn_login" [disabled]="!registerForm.valid   || loading " > <i class="fa fa-spinner fa-spin" *ngIf="loading"></i> REGISTER <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+                          <div class="col-lg-12"><p class="login_note">Note: By registering with us, you are agreeing to our <a routerLink="/privacy-policy" >Privacy Policy</a></p></div>
+                          
+                          <div class="col-lg-6">
+                              <app-social  [hero]="'register_page'"></app-social>
+                           </div>
+                        <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a routerLink="/login" >Login</a></p></div>
+               </div>
+                  
+                  </form>
+            
+        </div>
+    </div></div>
+
+    <!-- left side end -->
+    <div class="reg_right"><img src="./assets/images/right-register.jpg" alt="" > </div>
+</div>

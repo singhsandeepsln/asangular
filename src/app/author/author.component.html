@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="author_wrapper">
+      <div class="author_info cursor_sa">
+            <div class="left_info">
+                <img src="{{media_url}}{{user_detail?.profile_pic}}" alt="image missing" *ngIf="user_detail?.profile_pic">
+                <img src="assets/images/icons/user_default.jpg" alt="" class="" *ngIf="user_detail?.profile_pic==null">
+            </div>
+            <div class="right_info">
+                <h2>{{user_detail?.name}}</h2>
+                <p [innerHTML]="user_detail?.profile.biography"></p>
+                <a href="{{user_detail?.profile.linkedin_link}}" class="linkedin" target="_blank"><img src="assets/images/author/linkedin.png"></a>
+            </div>
+            <div class="clear"></div>
+      </div>
+      <div class="blogs_by_author">
+            <h2>Blogs Written by {{user_detail?.name}}</h2>
+        <div class="author_info" *ngFor="let list of user_blog_listing" (click)="getSlug(list?.slug)" routerLink="/blogs/{{list?.slug}}">
+            <div class="left_info_blog">
+                <img src="{{media_url}}{{list?.thumbnail}}" alt="image missing">
+            </div>
+            <div class="right_info_blog">
+                <h2>{{list?.title}}</h2>
+                <p [innerHtml]="  (list.excerpt.length>200)? (list.excerpt | slice:0:200)+'...':(list.excerpt)"></p>
+                <a class="b_learn_more" routerLink="/blogs/{{list?.slug}}">LEARN MORE</a>
+                
+            </div>
+            <div class="clear"></div>
+      </div>
+      </div>
+    </div>
+</div>

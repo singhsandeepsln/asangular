@@ -1,0 +1,168 @@
+<section class="mid_cont">	
+        <div class="container"><div class="row blog_top_head">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-md-6 col-sm-12 padding-0"><div class="blog_img_box_1 img_blog_box" > 
+               
+              <ng-template [ngIf]="blog_feature_data[0]" >
+                    <img src="{{media_url}}{{blog_feature_data[0].thumbnail}}" alt=""  routerLink="{{blog_feature_data[0].slug}}">
+                <div class="blog_home_txt_btm"  routerLink="{{blog_feature_data[0].slug}}">
+                    <span class="date">{{blog_feature_data[0].published_on | date: "MMM dd, yyyy"}}</span>
+                    <h2 >{{blog_feature_data[0].title}}</h2>
+                    <span class="blogger_name">{{blog_feature_data[0].created_by}}</span>
+                </div>
+              </ng-template>
+
+            </div></div>
+                
+            <div class="col-lg-6 col-md-6 col-sm-12 padding-0">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="blog_img_box_2 img_blog_box">  <ng-template [ngIf]="blog_feature_data[1]">
+                    <img src="{{media_url}}{{blog_feature_data[1].thumbnail}}" alt=""  routerLink="{{blog_feature_data[1].slug}}">
+                        <div class="blog_home_txt_btm" routerLink="{{blog_feature_data[1].slug}}">
+                                <span class="date">{{blog_feature_data[1].published_on | date: "MMM dd, yyyy"}}</span>
+                                <h2 >{{blog_feature_data[1].title}}</h2>
+                                <span class="blogger_name">{{blog_feature_data[1].created_by}}</span>
+                    </div></ng-template></div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="blog_img_box_2 img_blog_box">  <ng-template [ngIf]="blog_feature_data[2]">
+                    <img src="{{media_url}}{{blog_feature_data[2].thumbnail}}" alt=""  routerLink="{{blog_feature_data[2].slug}}">
+                        <div class="blog_home_txt_btm" routerLink="{{blog_feature_data[2].slug}}">
+                                <span class="date">{{blog_feature_data[2].published_on | date: "MMM dd, yyyy"}}</span>
+                                <h2>{{blog_feature_data[2].title}}</h2>
+                                <span class="blogger_name">{{blog_feature_data[2].created_by}}</span>
+                        </div></ng-template></div>
+                </div>
+            </div>
+    
+            <div class="blog_img_box_3 img_blog_box">  <ng-template [ngIf]="blog_feature_data[3]">
+                <img src="{{media_url}}{{blog_feature_data[3].thumbnail}}" alt="" routerLink="{{blog_feature_data[3].slug}}">
+                <div class="blog_home_txt_btm" routerLink="{{blog_feature_data[3].slug}}">
+                        <span class="date">{{blog_feature_data[3].published_on | date: "MMM dd, yyyy"}}</span>
+                        <h2>{{blog_feature_data[3].title}}</h2>
+                        <span class="blogger_name">{{blog_feature_data[3].created_by}}</span>
+                </div></ng-template>
+                </div>	
+            </div>
+            </div></div>
+        
+        
+        <!-- start here -->
+        <div class="container "><div class="row">
+        <div class="col-lg-9">
+            <h3 class="blog_head">LATEST BLOGS</h3>
+            <div class="row blog_top_head">
+                    <div class="col-lg-12 col-md-12 col-sm-12 padding-0">
+                    <owl-carousel-o [options]="customOptions">
+                                <ng-template carouselSlide  *ngFor="let latest_data of blog_latest_data"  >
+                                        
+                                                <div class="blog_img_box_4 img_blog_box"> 
+                                                
+                                                <img src="{{media_url}}{{latest_data.thumbnail}}" alt=""  routerLink="{{latest_data.slug}}">
+                                                    <div class="blog_home_txt_btm" routerLink="{{latest_data.slug}}">
+                                                <span class="date"></span>
+                                                <h2>{{latest_data.title}}</h2>
+                                                <span class="blogger_name">{{latest_data.created_by}} | {{latest_data.published_on | date: "MMM dd, yyyy"}}</span>
+                                                    </div>
+                                                </div>
+                                          
+                                </ng-template>    
+                        </owl-carousel-o>
+                    </div>
+
+    <!-- <div class="col-lg-4 col-md-4 col-sm-12 padding-0">
+        <div class="blog_img_box_4 img_blog_box"> <ng-template [ngIf]="blog_latest_data[0]">
+        <img src="{{media_url}}{{blog_latest_data[0].thumbnail}}" alt=""  routerLink="{{blog_latest_data[0].slug}}">
+            <div class="blog_home_txt_btm" routerLink="{{blog_latest_data[0].slug}}">
+        <span class="date"></span>
+        <h2>{{blog_latest_data[0].title}}</h2>
+        <span class="blogger_name">{{blog_latest_data[0].created_by}} | {{blog_latest_data[0].published_on | date: "MMM dd, yyyy"}}</span>
+            </div></ng-template>
+        </div>
+    </div> -->
+            
+    <!-- <div class="col-lg-4 col-md-4 col-sm-12 padding-0">
+        <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_latest_data[1]">
+                <img src="{{media_url}}{{blog_latest_data[1].thumbnail}}" alt="" routerLink="{{blog_latest_data[1].slug}}">
+            <div class="blog_home_txt_btm" routerLink="{{blog_latest_data[1].slug}}">
+    
+        <h2>{{blog_latest_data[1].title}}</h2>
+        <span class="blogger_name">{{blog_latest_data[1].created_by}} | {{blog_latest_data[1].published_on | date: "MMM dd, yyyy"}}</span>
+            </div></ng-template>
+        </div>
+    </div>
+            
+    <div class="col-lg-4 col-md-4 col-sm-12 padding-0">
+        <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_latest_data[2]">
+                <img src="{{media_url}}{{blog_latest_data[2].thumbnail}}" alt="" routerLink="{{blog_latest_data[2].slug}}">
+        <div class="blog_home_txt_btm" routerLink="{{blog_latest_data[2].slug}}">
+            <h2>{{blog_latest_data[2].title}}</h2>
+            <span class="blogger_name">{{blog_latest_data[2].created_by }} | {{blog_latest_data[2].published_on | date: "MMM dd, yyyy" }}</span>
+        </div></ng-template>
+    </div>
+    </div> -->
+            
+            </div> <!-- end row -->
+            
+            <h3 class="mt_80 blog_head">POPULAR BLOGS</h3>
+            
+            <div class="row">
+                
+                
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                        <ng-template [ngIf]="blog_popular_data[0]">
+                    <div class="blog_img_box_small img_blog_box"  routerLink="{{blog_popular_data[0].slug}}">
+                            <img src="{{media_url}}{{blog_popular_data[0].thumbnail}}" alt="">
+                        <!-- <span class="like_count"><img src="./assets/images/icons/like.png" alt="" /> 21</span> -->
+                    </div>
+                    <div class="blog_home_txt_ri "  routerLink="{{blog_popular_data[0].slug}}">					
+                            <h2>{{(blog_popular_data[0].title.length>50)? (blog_popular_data[0].title | slice:0:50)+'...':(blog_popular_data[0].title)}}</h2>
+                            <p [innerHtml]="(blog_popular_data[0].excerpt.length>65)? (blog_popular_data[0].excerpt | slice:0:65)+'...':(blog_popular_data[0].excerpt)"> </p>
+                    </div></ng-template>
+                </div>	
+                <div class="col-lg-6 col-md-6 col-sm-12"><ng-template [ngIf]="blog_popular_data[1]">
+                    <div class="blog_img_box_small img_blog_box" routerLink="{{blog_popular_data[0].slug}}">
+                            <img src="{{media_url}}{{blog_popular_data[1].thumbnail}}" alt="">
+                        <!-- <span class="like_count"><img src="./assets/images/icons/like.png" alt="" /> 21</span> -->
+                    </div>
+                    <div class="blog_home_txt_ri" routerLink="{{blog_popular_data[1].slug}}">					
+                            <h2>{{(blog_popular_data[1].title.length>50)? (blog_popular_data[1].title | slice:0:50)+'...':(blog_popular_data[1].title)}}</h2>
+                            <p [innerHtml]="(blog_popular_data[1].excerpt.length>65)? (blog_popular_data[1].excerpt | slice:0:65)+'...':(blog_popular_data[1].excerpt)"> </p>
+                    </div></ng-template>
+                </div>
+            </div><!-- end row -->
+            
+            <div class="row mt_60">
+        
+                <div class="col-lg-6 col-md-6 col-sm-12"><ng-template [ngIf]="blog_popular_data[2]">
+                    <div class="blog_img_box_small img_blog_box" routerLink="{{blog_popular_data[0].slug}}">
+                            <img src="{{media_url}}{{blog_popular_data[2].thumbnail}}" alt="">
+                        <!-- <span class="like_count"><img src="./assets/images/icons/like.png" alt="" /> 21</span> -->
+                    </div>
+                    <div class="blog_home_txt_ri" routerLink="{{blog_popular_data[2].slug}}">					
+                            <h2>{{(blog_popular_data[2].title.length>50)? (blog_popular_data[2].title | slice:0:50)+'...':(blog_popular_data[2].title)}}</h2>
+                            <p [innerHtml]="(blog_popular_data[2].excerpt.length>65)? (blog_popular_data[2].excerpt | slice:0:65)+'...':(blog_popular_data[2].excerpt)"> </p>
+                    </div></ng-template>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12"><ng-template [ngIf]="blog_popular_data[0]">
+                    <div class="blog_img_box_small img_blog_box" routerLink="{{blog_popular_data[3].slug}}">
+                            <img src="{{media_url}}{{blog_popular_data[3].thumbnail}}" alt="">
+                        <!-- <span class="like_count"><img src="./assets/images/icons/like.png" alt="" /> 21</span> -->
+                    </div>
+                    <div class="blog_home_txt_ri" routerLink="{{blog_popular_data[3].slug}}">					
+                            <h2>{{(blog_popular_data[3].title.length>50)? (blog_popular_data[3].title | slice:0:50)+'...':(blog_popular_data[3].title)}}</h2>
+                            <p [innerHtml]="(blog_popular_data[3].excerpt.length>65)? (blog_popular_data[3].excerpt | slice:0:65)+'...':(blog_popular_data[3].excerpt)"> </p>
+                    </div></ng-template>
+                </div>
+            </div><!-- end row -->
+            
+        </div>
+        <!-- end left side -->
+        <div class="col-lg-3">
+            <a routerLink="/write-blog" ><img src="assets/images/right_ads.jpg" alt="" class="google_ads mt_130"> </a>
+            <a (click)="checkSignUp(isLogged)"><img src="assets/images/google-ads/ads1.jpg" alt="" class="google_ads"> </a>
+        
+    
+        </div>
+        
+    </div></div></section>

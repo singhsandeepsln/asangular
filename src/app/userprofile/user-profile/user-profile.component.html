@@ -1,0 +1,36 @@
+<div class="container" *ngIf="hide_div">
+    <div class="user_box">
+        <div class="user_img box_left">
+            <!-- <img src="/assets/images/icons/image_upload.png" alt="">  -->
+            <ng-template #default><img src="assets/images/icons/user_default.jpg" alt="" class=""></ng-template>
+            <img src="{{media_url}}{{image_uploaded}}" alt="" class="" *ngIf="image_uploaded != null; else default">
+            <!-- <span>Profile Image</span> -->
+        	</div>
+       <div class="user_right_box_sa">
+            <div class="user_name">
+
+            <label><span class="pro_name">Name: </span> <span class="pro_detail">{{user_profile_data.name}}</span></label>
+            <label><span class="pro_name">Phone Number :</span> <span class="pro_detail">{{user_profile_data.mobile}}</span></label>
+
+            </div>
+            <div class="user_name">
+                    <label><span class="pro_name">Username : </span><span class="pro_detail">{{user_profile_data.username}}</span></label>
+           <label><span class="pro_name">Email : </span><span class="pro_detail">{{user_profile_data.email}}</span></label>
+            </div>
+
+            <div class="user_name user_bio" *ngIf=" user_profile_data.profile?.biography==!null || user_profile_data_bio===!'true'">
+                    <label><span class="pro_name">User Bio : </span><span class="pro_detail pro_detail_user_bio" >
+                        {{user_profile_data.profile?.biography | slice:0:150}}
+                        <!-- {{ (user_profile_data.profile?.biography.length>200)? (user_profile_data.profile?.biography | slice:0:200)+'..':(user_profile_data.profile?.biography) }} -->
+                    </span></label>
+
+            </div>
+       </div>
+        <img src="/assets/images/icons/edit.png" alt="image missing" class="edit_pro" (click)="editProfile()">
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+<app-createprofile *ngIf="show_div"></app-createprofile>

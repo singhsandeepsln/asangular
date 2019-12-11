@@ -1,0 +1,36 @@
+
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+<div class="row">
+    <div class="col-lg-12">   <div class="question">
+            <input type="text" required formControlName="username" />
+            <label>Username/Email</label>
+        </div></div>   </div>
+        <div class="clearfix"></div>
+    <div class="row">
+    <div class="col-lg-12">    <div class="question">
+        <input type="password" required formControlName="password" />
+        <label>Password</label>
+        </div></div>
+        </div>
+        
+        <div class="clearfix"></div>
+        <div class="row">
+        <div class="col-lg-12"><button type="submit" class="btn_login">LOGIN <img src="./assets/images/icons/news_arrow.png" alt="" ></button> </div>
+        </div>
+        
+        <div class="row">
+        <div class="col-lg-12"><p class="login_note"><a routerLink="/forget-password">Forgot Password?</a> <a routerLink="/register" class="float-right">Register now</a></p></div>
+        </div>
+        <div class="row">
+        <div class="col-lg-12"><a class="btn_google_login" (click)="signInWithGoogle()">  <img src="./assets/images/icons/google.png" alt="" > Continue with Google</a> </div>
+        </div>
+        <!-- <div class="col-lg-12"><p class="login_accnt">Already have an account?  <a href="#" >Login</a></p></div> -->
+    
+
+</form>
+                        
+                
+                
+     

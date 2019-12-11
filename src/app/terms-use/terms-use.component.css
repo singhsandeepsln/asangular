@@ -1,0 +1,17 @@
+.mid_cont h2{ color: #000000; font-family: 'roboto'; font-weight: 700; font-size: 30px;line-height: 30px;text-transform: capitalize; margin-bottom: 20px;}
+.number_list ul{ padding-left: 18px; }
+.number_list ul li{list-style-type: decimal;margin-bottom: 20px;}
+.bullet_list{ margin-top: 60px;}
+.bullet_list ul{ padding-left: 18px;}
+.bullet_list ul li{ margin-top: 20px;}
+.table_format{margin-top: 60px;}
+.table-responsive{margin-top:20px;}
+.bullet_list p{ width:100%;}
+.bullet_list p,.bullet_list ul li{font-size: 16px; line-height: 24px; color: #000;font-family: 'roboto';
+    font-weight: 400;}
+
+@media(max-width:767px){
+    .mid_cont h2{font-size: 25px;}
+    .bullet_list{ margin-top: 40px;}
+    .mid_cont{text-align: left;}
+}

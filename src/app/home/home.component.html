@@ -1,0 +1,172 @@
+
+
+<div class="as_full_width">
+    <div class="home_banner home_banner_icon" *ngIf="srch_here==false">
+<!--            <img src="assets/images/home_banner.jpg" alt="banner missing">-->
+        <div class="banner_content">
+            <h1>Creating an Environment for Coming Future !</h1>
+            <ul>
+                <li> Learn skills with great expertise.</li>
+                <li>Shaping the global community of intellectuals.</li>
+                <li>Enticing services to buzz the tune of ordinary.</li>
+            </ul>
+        </div>
+        <div class="as_controls">
+                <span class="search_control">
+                    <ul>
+                        <li><a (click)="search_open()"><img src="assets/images/icons/search.png" alt="search icon missing"></a></li>
+                        <li><a [href]='emailstring'><img src="assets/images/icons/envelop.png" alt="envelop image missing"></a></li>
+                    </ul>
+                </span>
+                
+            </div>
+            <aside class="blog_control">
+                <a routerLink="/blogs">MORE BLOGS
+                    <img src="assets/images/icons/blog_arrow.png" alt="blog image missing">
+                </a> 
+            </aside>
+    </div> <!-- close banner -->
+
+    <div class="home_banner home_banner_br_none" *ngIf="srch_here==true">
+        <a (click)="search_close()" class="search_close"><img src="assets/images/icons/cross.png" alt="" /></a>
+        <div class="srch_width_1019">
+          
+            <div class="srch_input"><input type="text" placeholder="Search" #formRow  (keydown)="onKeydown($event ,$event.target.value)"> <img src="assets/images/icons/search_big.png" alt=""></div>
+           
+            <div *ngIf="chck_result==true"> <!-- Search Start Report (blur)="onBlurMethod($event.target.value)"-->
+                <p *ngIf="blog_search_data.length==0"> No results found! </p>
+<!--    ----------  ------------------  ----------  no result after show related meand latest blog show     ---------------   -->
+<div class="srch_blog_list"  *ngIf="blog_search_data.length==0">
+                  
+        <h3 class="blog_head">RELATED BLOGS</h3>
+        <div class="row blog_top_head">
+<div class="col-lg-3">
+    <div class="blog_img_box_4 img_blog_box"> <ng-template [ngIf]="blog_latest_data[0]">
+    <img src="{{media_url}}{{blog_latest_data[0].thumbnail}}" alt=""  routerLink="/blogs/{{blog_latest_data[0].slug}}">
+        <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_latest_data[0].slug}}">
+    <span class="date"></span>
+    <h2>{{blog_latest_data[0].title}}</h2>
+    <span class="blogger_name">{{blog_latest_data[0].created_by}}, {{blog_latest_data[0].published_on | date: "MMM dd, yyyy"}}</span>
+        </div></ng-template>
+    </div>
+</div>
+        
+<div class="col-lg-3">
+    <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_latest_data[1]">
+            <img src="{{media_url}}{{blog_latest_data[1].thumbnail}}" alt="" routerLink="/blogs/{{blog_latest_data[1].slug}}">
+        <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_latest_data[1].slug}}">
+
+    <h2>{{blog_latest_data[1].title}}</h2>
+    <span class="blogger_name">{{blog_latest_data[1].created_by}}, {{blog_latest_data[1].published_on | date: "MMM dd, yyyy"}}</span>
+        </div></ng-template>
+    </div>
+</div>
+        
+<div class="col-lg-3">
+    <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_latest_data[2]">
+            <img src="{{media_url}}{{blog_latest_data[2].thumbnail}}" alt="" routerLink="/blogs/{{blog_latest_data[2].slug}}">
+    <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_latest_data[2].slug}}">
+        <h2>{{blog_latest_data[2].title}}</h2>
+        <span class="blogger_name">{{blog_latest_data[2].created_by }}, {{blog_latest_data[2].published_on | date: "MMM dd, yyyy" }}</span>
+    </div></ng-template>
+</div>
+</div>
+        
+        </div> <!-- end row -->
+    </div><!-- end blog list end  -->
+
+
+<!--    ----------  ------------------  ----------  no result after show related meand latest blog show     ---------------   -->
+                <div class="srch_blog_list"  *ngIf="blog_search_data.length>0"> 
+                        <h3 class="blog_head">Search Blogs</h3>
+                    <div class="row blog_top_head">
+            <div class="col-lg-3" *ngFor="let srch_blog of blog_search_data |  slice:0:4 ">
+                <div class="blog_img_box_4 img_blog_box">  
+                <img src="{{media_url}}{{srch_blog.thumbnail}}" alt=""  routerLink="/blogs/{{srch_blog.slug}}">
+                    <div class="blog_home_txt_btm" routerLink="/blogs/{{srch_blog.slug}}">
+                <span class="date"></span>
+                <h2>{{srch_blog.title}}</h2>
+                <span class="blogger_name">{{srch_blog.created_by}}, {{srch_blog.published_on | date: "MMM dd, yyyy"}}</span>
+                    </div> 
+                </div>
+            </div>
+         
+                    
+            
+                    
+                    </div> <!-- end row -->
+                </div><!-- end blog list end  -->
+            </div> <!-- End search result -->
+
+
+
+<!--    ----------  ------------------  ----------  new start   --------------------     ---------------   -->
+            <div *ngIf="chck_result==false"> <!-- search before -->
+                <div class="srch_cat_box">
+                    <h3>CATEGORIES</h3>
+                    <a (click)="get_category_data(list.slug)"  *ngFor="let list of blog_cat_list">{{list.name}}</a>
+                </div> <!-- end category -->
+    
+                <div class="srch_blog_list">
+                  
+                    <h3 class="blog_head">{{blog_cat_name}} BLOGS</h3>
+                    <div class="row blog_top_head">
+                        <p *ngIf="blog_feature_data.length==0" class="col-lg-12"> No results found! </p>
+                        <app-loader-small *ngIf="loader_cat==true"></app-loader-small>
+                            <!--  -->
+            <div class="col-lg-3" *ngFor="let blog_list of blog_feature_data | slice:0:3 ">
+                <div class="blog_img_box_4 img_blog_box"> 
+                <img src="{{media_url}}{{blog_list.thumbnail}}" alt=""  routerLink="/blogs/{{blog_list.slug}}">
+                    <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_list.slug}}">
+                <span class="date"></span>
+                <h2>{{blog_list.title}}</h2>
+                <span class="blogger_name">{{blog_list.created_by}}, {{blog_list.published_on | date: "MMM dd, yyyy"}}</span>
+                    </div> 
+                </div>
+            </div>
+                    
+            <!-- <div class="col-lg-3">
+                <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_feature_data[1]">
+                        <img src="{{media_url}}{{blog_feature_data[1].thumbnail}}" alt="" routerLink="/blogs/{{blog_feature_data[1].slug}}">
+                    <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_feature_data[1].slug}}">
+            
+                <h2>{{blog_feature_data[1].title}}</h2>
+                <span class="blogger_name">{{blog_feature_data[1].created_by}}, {{blog_feature_data[1].published_on | date: "MMM dd, yyyy"}}</span>
+                    </div></ng-template>
+                </div>
+            </div>
+                    
+            <div class="col-lg-3">
+                <div class="blog_img_box_4 img_blog_box"><ng-template [ngIf]="blog_feature_data[2]">
+                        <img src="{{media_url}}{{blog_feature_data[2].thumbnail}}" alt="" routerLink="/blogs/{{blog_feature_data[2].slug}}">
+                <div class="blog_home_txt_btm" routerLink="/blogs/{{blog_feature_data[2].slug}}">
+                    <h2>{{blog_feature_data[2].title}}</h2>
+                    <span class="blogger_name">{{blog_feature_data[2].created_by }}, {{blog_feature_data[2].published_on | date: "MMM dd, yyyy" }}</span>
+                </div></ng-template>
+            </div>
+            </div> -->
+                    
+                    </div> <!-- end row -->
+                </div><!-- end blog list end  -->
+
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    
+</div> <!-- hide top banner -->
+
+
+	<div class="as_container">
+        <app-featuredblog></app-featuredblog>
+    </div>
+    <section class="as_container">
+            <app-news></app-news>
+    </section>
+    <div class="as_container">
+        <app-testimonial></app-testimonial>
+    </div>
+    <!-- <button class="btn btn-social-icon btn-google mx-1" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button> -->

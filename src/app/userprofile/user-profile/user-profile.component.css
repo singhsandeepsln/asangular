@@ -1,0 +1,58 @@
+.user_box{border: 1px solid #f8f8f8;display: inline-block;float: left;width: 100%;margin: 0 0px 50px;padding:22px 30px 10px;
+-webkit-box-shadow: 0px 0px 12px 0px rgb(241, 241, 241);
+-moz-box-shadow: 0px 0px 12px 0px rgb(241, 241, 241);
+box-shadow: 0px 0px 12px 0px rgb(241, 241, 241);font-family: 'roboto';position: relative;}
+.user_box .user_img{float: left;text-align: center;margin-right: 85px;}
+/* .user_box .user_img img{} */
+.user_box .user_img span{display: block;color: #314f74;font-size: 16px;margin: 10px 0;}
+.user_box .user_name{float: left;width: 50%;padding:5px 0 0;}
+.user_name label{font-size: 18px;color: #314f74;font-weight: 400;font-family: 'roboto';margin:10px 0; display: inline-block; width: 100%;}
+.edit_pro{ position: absolute;    right: 30px;top: 20px;}
+.box_left{  border:solid 4px #f0f4f8; width: 121px; height: 121px; border-radius: 50%;  background: #cfddee;overflow: hidden;}
+.box_left img{ width: 100%; min-height: 121px;}
+.pro_name{ color: #000;font-weight: 500;float: left;}
+.user_box .user_bio{ width: 100%; display: inline-block;}
+.user_box .user_bio label{ margin-top: 0px;}
+.pro_detail{ float: left;margin-left: 5px; width: 200px; text-overflow: ellipsis; overflow: hidden;white-space: nowrap;}
+.user_right_box_sa{display: inline-block; width: 81%;}
+.user_box .user_bio .pro_detail{ width:80%;}
+.pro_detail_user_bio{white-space: inherit;}
+
+
+
+
+
+
+
+@media (max-width:991px) {
+.user_box .user_name{padding: 0px 0 0;}
+.user_name  label {margin: 3px 0;}
+.pro_detail{width: 137px;}
+
+}
+@media(max-width:768px){
+    .user_box .user_img{margin-bottom: 10px;}.user_box .user_img{margin-bottom: 10px;margin: 0 auto;float: none;}
+    .user_box .user_bio .pro_detail{ width:75%;}.user_box .user_name{ width: 100%;}
+    .pro_detail_user_bio{white-space: nowrap;}
+}
+
+
+@media(max-width:600px){
+    
+    /* .user_box .user_bio .pro_detail{ width:100%;} */
+    .edit_pro{width: 20px;}
+    .user_right_box_sa{width:100%; float: none; text-align: left; }
+}
+
+
+
+
+ 
+
+@media (max-width:460px) {
+.user_name  label {font-size: 14px;}
+.pro_detail{width: 109px;}
+.user_box .user_bio  .pro_detail{ width: 65%;}
+
+}
+    

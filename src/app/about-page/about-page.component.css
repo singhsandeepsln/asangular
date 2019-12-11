@@ -1,0 +1,43 @@
+
+.team_set{display: inline-block;margin-top: 45px}
+.team_set h3{font-family: 'roboto';color: #000000;font-size:30px;margin: 0px 0 15px;}
+
+.team_box{background: #f9fbfd;float: left;width: 100%;margin: 10px 0;padding: 55px 80px 55px 40px}
+.team_box .team_left{float: left;width: 168px;}
+.team_left .team_img{height: 168px;width: 168px;overflow: hidden;border-radius: 50%}
+.team_left .team_img img{min-height: 168px;width: 100%;}
+.team_box .team_ri{float: left; padding-left: 48px;}
+
+.team_box .team_ri p{color: #000000;font-size: 16px;font-family: 'roboto';margin: 15px 0 0;}
+.team_box .team_ri h4{color: #314f74;font-size: 21px;margin:35px 0 0;font-family: 'roboto'; }
+.team_box .team_ri h5{color: #314f74;font-size: 14px;font-family: 'roboto';}
+
+
+
+.abt_top h1{font-family: 'roboto';color: #000000;font-size:24px;margin: 00 0  20px; }
+.abt_top p{color: #000000;font-size: 16px;font-family: 'roboto';margin: 15px 0 30px;}
+.abt_top h2{color: #000000;font-size: 16px;}
+
+
+@media(max-width:1141px){
+    .team_box{padding: 55px 0px 55px 40px;}
+}
+
+@media(max-width:992px){
+    .team_box{padding: 55px 0px 55px 20px;}
+    .team_left .team_img{height: 130px;width: 130px;overflow: hidden;border-radius: 50%}
+}
+ @media(max-width:696px){
+    .team_img{float: none; margin: 0 auto;}
+    .team_left .team_img{height: 130px;width: 130px;overflow: hidden;border-radius: 50%;}
+   .team_box .team_left { float: none; width: 100%;}
+   .team_box .team_ri{padding-left:0px;}
+   .team_box .team_ri h4{font-size: 18px;}
+   .team_ri h4,.team_ri h5{text-align: center;}
+   .team_ri{ text-align: left;}
+ }
+
+
+
+
+

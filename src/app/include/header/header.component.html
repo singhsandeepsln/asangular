@@ -1,0 +1,55 @@
+<div id="fixed_height_header" ></div>
+<div  class="animated fadeInDown main_header" id="navbar">
+<div class="as_container as_container_sa" *ngIf="IsValid()">
+    <header >
+            <div class="left_nav navbar navbar-expand-lg ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
+                        <span class="navbar-toggler-icon"><span></span><span></span> <span></span>  </span>
+                    </button>
+                <div class="logo">
+                     <a routerLink="/"  (click)="hide_show()"><img src="assets/images/logo.jpg" alt="logo image missing"></a>
+                    </div>
+                   
+
+                    <nav class="navigation collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul><!--*ngIf="home_hide_txt"-->
+                            <!-- <li ><a routerLink="/home" [routerLinkActive]="'is-active'">Home</a></li> -->
+                            <li><a routerLink="/blogs"  [routerLinkActive]="'is-active'"  (click)="hide_show()" [routerLinkActiveOptions]="{exact:
+                                true}">Blogs </a></li>
+                            <li><a routerLink="/categories" [routerLinkActive]="'is-active'" (click)="hide_show()" class="show">Categories</a></li>
+                            <li><a routerLink="/news" [routerLinkActive]="'is-active'" (click)="hide_show()">News</a></li>
+                            <li><a routerLink="/about-us" [routerLinkActive]="'is-active'" (click)="hide_show()">About Us</a></li>
+                            <!-- <li> <a routerLink="login" (click)="hide_show()" class="btn_usr_login" *ngIf="user_not_login()=='false'">Login<font>/Register</font></a></li> -->
+                        </ul>
+                    </nav><div class="clear"></div>
+            </div>
+            <div class="right_nav">
+                <a routerLink="login" class="btn_usr_login" *ngIf="user_not_login()=='false'">Login<font>/Register</font></a>
+                <a routerLink="login" (click)="hide_show()" class="btn_usr_login btn_usr_login_mobile" *ngIf="user_not_login()=='false'"><img src="assets/images/icons/LoginIcon.png" alt="image missing"></a>
+                <!-- <a routerLink="login">Login/Register</a> -->
+                <!-- {{user_not_login()}} -->
+                <div class="user_login" ngbDropdown  *ngIf="user_not_login()=='true'" #myDrop="ngbDropdown" >
+                   <div class="usr_login_top"  id="dropdownBasic1" ngbDropdownToggle  (click)="hide_show()"> 
+                       <div class="usr_img_box">
+                           <img src="{{media_url}}{{user_profile_pic}}" alt=""  *ngIf="user_profile_pic"> 
+                           <img src="assets/images/icons/user_default.jpg" alt="" *ngIf="user_profile_pic==null"> 
+                        </div> 
+                       <img src="assets/images/icons/three_dots.png" alt="" class="top_three_dots"> 
+                    </div>
+
+                   <div class="usr_login_btm dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                       <!-- <p>{{user_profile_data.username}}</p> -->
+                            <p *ngIf="chck_user_name">{{chck_user_name}}</p>
+                     
+                    <ul>
+                       <li><a routerLink="/profile" (click)="$event.stopPropagation(); myDrop.close();"><img src="assets/images/icons/usr_prof.png" alt="" > My Profile</a></li>
+                       <li><a routerLink="/change-password" (click)="$event.stopPropagation(); myDrop.close();"><img src="assets/images/icons/usr_log.png" alt="" > Change Password</a></li>
+                       <li><a (click)="logout()"><img src="assets/images/icons/usr_chng_pss.png" alt="" > Logout</a></li>
+                    </ul></div> 
+                   
+                 </div> <!-- user login end  -->
+            </div> <!-- right nav -->
+            <div class="clear"></div>
+    </header>
+    <div id="rig__top"></div>
+</div></div>

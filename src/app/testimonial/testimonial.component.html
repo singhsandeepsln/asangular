@@ -1,0 +1,610 @@
+<div class="testimonial">
+    <app-loader-small *ngIf="loader==true"></app-loader-small>
+        <div class="testimonial_left">
+            <div class="coll-1">
+                <ul>
+                    <li (mouseenter)="showTestimonial('test1')" class="test1 test_li selected"><a ><img src="{{media_url}}{{final_data[0]?.image}}" alt="image missing"></a></li>
+                    <!-- <li (mouseenter) ="mouseEnter('div') "  (mouseleave) ="mouseLeave('div')" class="test_li"><a ><img src="{{media_url}}{{final_data[0]?.image}}" alt="image missing"></a></li> -->
+                    <li (mouseenter)="showTestimonial('test2')" class="test2 test_li"><a ><img src="{{media_url}}{{final_data[1]?.image}}" alt="image missing"></a></li>
+                    <li (mouseenter)="showTestimonial('test3')" class="test3 test_li"><a ><img src="{{media_url}}{{final_data[2]?.image}}" alt="image missing"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="coll-2">
+               <ul>
+                    <li (mouseenter)="showTestimonial('test4')" class="test4 test_li"><a ><img src="{{media_url}}{{final_data[3]?.image}}" alt="image missing"></a></li>
+                    <li (mouseenter)="showTestimonial('test5')" class="test5 test_li"><a ><img src="{{media_url}}{{final_data[4]?.image}}" alt="image missing"></a></li>
+                    <li (mouseenter)="showTestimonial('test6')" class="test6 test_li"><a ><img src="{{media_url}}{{final_data[5]?.image}}" alt="image missing"></a></li>
+                    <li (mouseenter)="showTestimonial('test7')" class="test7 test_li"><a ><img src="{{media_url}}{{final_data[6]?.image}}" alt="image missing"></a></li><div class="clear"></div>
+               </ul>
+            </div>
+            <div class="coll-3">
+               <ul>
+                  
+                  <li (mouseenter)="showTestimonial('test8')" class="test_img_height_192 test8 test_li"><a ><img src="{{media_url}}{{final_data[7]?.image}}" alt="image missing"></a></li>
+                  <li (mouseenter)="showTestimonial('test9')" class="test_img_height_192 test9 test_li"><a ><img src="{{media_url}}{{final_data[8]?.image}}" alt="image missing"></a></li>
+                  <li (mouseenter)="showTestimonial('test10')" class="test_m_img_height_192 test10 test_li"><a ><img src="{{media_url}}{{final_data[9]?.image}}" alt="image missing"></a></li>
+                        <div class="clear"></div>
+               </ul>
+            </div>
+        </div>
+        
+            <div class="testimonial_post">
+                <div id="test1" class="testimonial_content">
+              <div class="student_detail">
+                    <span class="student_name">{{final_data[0]?.name}}</span>
+                       <span class="student_from">{{final_data[0]?.location}}</span>
+              </div>
+              <span class="star_rating">
+                  <div class="">
+                      <span *ngIf="final_data[0]?.rating==5">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                        </span>
+                      <span *ngIf="final_data[0]?.rating==4">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                       
+                      
+                      </span>
+                      <span *ngIf="final_data[0]?.rating==3">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                            </span>
+                      <span *ngIf="final_data[0]?.rating==2">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                            </span>
+                            <span *ngIf="final_data[0]?.rating==1">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                  </span>
+                  </div>
+                <!-- <span class="testimonial_date">{{final_data[0]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+              </span><div class="clear"></div>
+             <p>{{final_data[0]?.message}}
+             </p>
+
+            </div>
+            <div id="test2" class="testimonial_content" style="display: none">
+                    <div class="student_detail">
+                        <span class="student_name">{{final_data[1]?.name}}</span>
+                        <span class="student_from">{{final_data[1]?.location}}</span>
+                    </div>
+                    <span class="star_rating">
+                        <div class="">
+                            <span *ngIf="final_data[1]?.rating==5">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                              </span>
+                            <span *ngIf="final_data[1]?.rating==4">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                             
+                            
+                            </span>
+                            <span *ngIf="final_data[1]?.rating==3">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                  </span>
+                            <span *ngIf="final_data[1]?.rating==2">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                <img src="assets/images/testimonial/star.png" alt="image missing">
+                                  </span>
+                                  <span *ngIf="final_data[1]?.rating==1">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        </span>
+                        </div>
+                      <!-- <span class="testimonial_date">{{final_data[1]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                    </span><div class="clear"></div>
+                   <p>{{final_data[1]?.message}}
+                   </p>
+      
+                  </div>
+                  <div id="test3" class="testimonial_content" style="display: none">
+                        <div class="student_detail">
+                            <span class="student_name">{{final_data[2]?.name}}</span>
+                            <span class="student_from">{{final_data[2]?.location}}</span>
+                        </div>
+                        <span class="star_rating">
+                            <div class="">
+                                <span *ngIf="final_data[2]?.rating==5">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                  </span>
+                                <span *ngIf="final_data[2]?.rating==4">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                 
+                                
+                                </span>
+                                <span *ngIf="final_data[2]?.rating==3">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      </span>
+                                <span *ngIf="final_data[2]?.rating==2">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      </span>
+                                      <span *ngIf="final_data[2]?.rating==1">
+                                          <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                                          <img src="assets/images/testimonial/star.png" alt="image missing">
+                                            </span>
+                            </div>
+                          <!-- <span class="testimonial_date">{{final_data[1]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                        </span><div class="clear"></div>
+                       <p>{{final_data[2]?.message}}
+                       </p>
+          
+                      </div>
+                      <div id="test4" class="testimonial_content" style="display: none">
+                            <div class="student_detail">
+                                <span class="student_name">{{final_data[3]?.name}}</span>
+                                <span class="student_from">{{final_data[3]?.location}}</span>
+                            </div>
+                            <span class="star_rating">
+                                <div class="">
+                                    <span *ngIf="final_data[3]?.rating==5">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      </span>
+                                    <span *ngIf="final_data[3]?.rating==4">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                     
+                                    
+                                    </span>
+                                    <span *ngIf="final_data[3]?.rating==3">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                          </span>
+                                    <span *ngIf="final_data[3]?.rating==2">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                                          </span>
+                                          <span *ngIf="final_data[3]?.rating==1">
+                                              <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                              <img src="assets/images/testimonial/star.png" alt="image missing">
+                                              <img src="assets/images/testimonial/star.png" alt="image missing">
+                                              <img src="assets/images/testimonial/star.png" alt="image missing">
+                                              <img src="assets/images/testimonial/star.png" alt="image missing">
+                                                </span>
+                                </div>
+                              <!-- <span class="testimonial_date">{{final_data[3]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                            </span><div class="clear"></div>
+                           <p>{{final_data[3]?.message}}
+                           </p>
+              
+                  </div>
+                  <div id="test5" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[4]?.name}}</span>
+                  <span class="student_from">{{final_data[4]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[4]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[4]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[4]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[4]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[4]?.rating==1">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[4]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[4]?.message}}
+                  </p>
+
+                  </div>
+                  <div id="test6" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[5]?.name}}</span>
+                  <span class="student_from">{{final_data[5]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[5]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[5]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[5]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[5]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[5]?.rating==1">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[5]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[5]?.message}}
+                  </p>
+
+                  </div>
+                  <div id="test7" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[6]?.name}}</span>
+                  <span class="student_from">{{final_data[6]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[6]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[6]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[6]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[6]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[6]?.rating==1">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[6]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[6]?.message}}
+                  </p>
+
+                  </div>
+                  <div id="test8" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[7]?.name}}</span>
+                  <span class="student_from">{{final_data[7]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[7]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[7]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[7]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[7]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[7]?.rating==1">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[7]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[7]?.message}}
+                  </p>
+
+                  </div>
+                  <div id="test9" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[8]?.name}}</span>
+                  <span class="student_from">{{final_data[8]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[8]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[8]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[8]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[8]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[8]?.rating==1">
+                    <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                    <img src="assets/images/testimonial/star.png" alt="image missing">
+                      </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[8]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[8]?.message}}
+                  </p>
+                  </div>
+                  <div id="test10" class="testimonial_content" style="display: none">
+                  <div class="student_detail">
+                  <span class="student_name">{{final_data[9]?.name}}</span>
+                  <span class="student_from">{{final_data[9]?.location}}</span>
+                  </div>
+                  <span class="star_rating">
+                  <div class="">
+                  <span *ngIf="final_data[9]?.rating==5">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  </span>
+                  <span *ngIf="final_data[9]?.rating==4">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+
+
+                  </span>
+                  <span *ngIf="final_data[9]?.rating==3">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                    </span>
+                  <span *ngIf="final_data[9]?.rating==2">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                  <img src="assets/images/testimonial/star.png" alt="image missing">
+                    </span>
+                    <span *ngIf="final_data[9]?.rating==1">
+                        <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                        <img src="assets/images/testimonial/star.png" alt="image missing">
+                          </span>
+                  </div>
+                  <!-- <span class="testimonial_date">{{final_data[9]?.created_on | date: 'MMMM d yyyy'}}</span> -->
+                  </span><div class="clear"></div>
+                  <p>{{final_data[9]?.message}}
+                  </p>
+
+                  </div>
+        </div><div class="clear"></div>
+
+        <!--for Mobile-->
+</div>
+
+        <div class="testimonial_post test_mobile">
+          
+              <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide *ngFor="let list of final_data">
+                      <div class="testimonial_content">
+  
+                          <div class="student_detail">
+                                <span class="student_name">{{list?.name}}</span>
+                                   <span class="student_from">{{list?.location}}</span>
+                          </div>
+                          <span class="star_rating">
+                              <div class="">
+                                  <span *ngIf="list?.rating==5">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                    </span>
+                                  <span *ngIf="list?.rating==4">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                   
+                                  
+                                  </span>
+                                  <span *ngIf="list?.rating==3">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        </span>
+                                  <span *ngIf="list?.rating==2">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                      <img src="assets/images/testimonial/star.png" alt="image missing">
+                                        </span>
+                                        <span *ngIf="list?.rating==1">
+                                            <img src="assets/images/testimonial/fillstar.png" alt="image missing">
+                                            <img src="assets/images/testimonial/star.png" alt="image missing">
+                                            <img src="assets/images/testimonial/star.png" alt="image missing">
+                                            <img src="assets/images/testimonial/star.png" alt="image missing">
+                                            <img src="assets/images/testimonial/star.png" alt="image missing">
+                                              </span>
+                              </div>
+                            <!-- <span class="testimonial_date">{{final_data[0]?.created_on | date: 'MMMM d yyyy'}}</span>  -->
+                          </span>
+                          <div class="clear"></div>
+                         <p>{{list?.message}}
+                         </p>
+                  
+                        </div>    
+                  </ng-template>    
+          </owl-carousel-o>
+  
+           
+        </div>
+
+    
